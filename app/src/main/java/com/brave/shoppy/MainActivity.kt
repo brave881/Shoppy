@@ -21,6 +21,7 @@ import cafe.adriel.voyager.navigator.tab.LocalTabNavigator
 import cafe.adriel.voyager.navigator.tab.Tab
 import cafe.adriel.voyager.navigator.tab.TabNavigator
 import com.brave.shoppy.navigation.NavigationHandler
+import com.brave.shoppy.screen.bag.BagScreen
 import com.brave.shoppy.screen.home.HomeScreen
 import com.brave.shoppy.screen.sign_in.SignInScreen
 import com.brave.shoppy.ui.theme.ShoppyTheme
@@ -41,7 +42,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             ShoppyTheme {
-                Navigator(screen = SignInScreen()) { navigator ->
+                Navigator(screen = BagScreen()) { navigator ->
                     LaunchedEffect(key1 = navigator) {
                         navigationHandler.navigationArgs.onEach {
                             it.invoke(navigator)
@@ -51,16 +52,17 @@ class MainActivity : ComponentActivity() {
 //                    SlideTransition(navigator = navigator)
                 }
 
-                TabNavigator(HomeScreen) { tabNavigator ->
-                    Scaffold(content = {
-                        CurrentTab()
-                        Spacer(modifier = Modifier.height(it.calculateBottomPadding()))
-                    }, bottomBar = {
-                        NavigationBar {
-                            TabNavigationItem(tab = HomeScreen)
-                        }
-                    }, containerColor = black20)
-                }
+//                TabNavigator(HomeScreen()) {tabNavigator ->
+//                    Scaffold(content = {
+//                        CurrentTab()
+//                        Spacer(modifier = Modifier.height(it.calculateBottomPadding()))
+//                    }, bottomBar = {
+//                        NavigationBar {
+//                            TabNavigationItem(tab =HomeScreen())
+//                            TabNavigationItem(tab = BagScreen())
+//                        }
+//                    }, containerColor = black20)
+//                }
             }
         }
     }

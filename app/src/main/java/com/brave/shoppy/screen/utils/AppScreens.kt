@@ -17,7 +17,7 @@ import javax.inject.Inject
 
 class AppScreens @Inject constructor() {
     fun signInScreen() = SignInScreen()
-    fun homeScreen() = HomeScreen
+    fun homeScreen() = HomeScreen()
     fun addressScreen() = AddressScreen()
     fun bagScreen() = BagScreen()
     fun cartScreen() = CartScreen()

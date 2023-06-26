@@ -40,7 +40,7 @@ import com.brave.shoppy.screen.home.components.ItemReview
 import com.brave.shoppy.ui.theme.*
 import com.brave.shoppy.utils.*
 
-object HomeScreen : Tab {
+class HomeScreen : Tab {
     override val options: TabOptions
         @Composable get() {
             val icon = rememberVectorPainter(
@@ -57,10 +57,8 @@ object HomeScreen : Tab {
     override fun Content() {
         HomeScreenContent()
     }
-
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreenContent(modifier: Modifier = Modifier) {
     Box(

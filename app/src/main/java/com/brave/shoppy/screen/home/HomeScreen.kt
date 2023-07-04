@@ -16,12 +16,13 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
@@ -35,10 +36,21 @@ import androidx.compose.ui.unit.dp
 import cafe.adriel.voyager.navigator.tab.Tab
 import cafe.adriel.voyager.navigator.tab.TabOptions
 import com.brave.shoppy.R
+import com.brave.shoppy.screen.home.components.FloatActionButton
 import com.brave.shoppy.screen.home.components.ItemCategory
 import com.brave.shoppy.screen.home.components.ItemReview
-import com.brave.shoppy.ui.theme.*
-import com.brave.shoppy.utils.*
+import com.brave.shoppy.ui.theme.ShoppyTheme
+import com.brave.shoppy.ui.theme.black100
+import com.brave.shoppy.ui.theme.black40
+import com.brave.shoppy.ui.theme.grey100
+import com.brave.shoppy.ui.theme.primary100
+import com.brave.shoppy.ui.theme.white100
+import com.brave.shoppy.ui.theme.white80
+import com.brave.shoppy.utils.betweenItemTextPadding
+import com.brave.shoppy.utils.betweenTextPadding
+import com.brave.shoppy.utils.large
+import com.brave.shoppy.utils.primaryPadding
+import com.brave.shoppy.utils.small
 
 class HomeScreen : Tab {
     override val options: TabOptions
@@ -206,39 +218,44 @@ fun HomeScreenContent(modifier: Modifier = Modifier) {
             }
 
             Spacer(modifier = Modifier.height(15.dp))
-            Surface(modifier = Modifier.fillMaxWidth()) {
-//                Scaffold(bottomBar = {
-//                    BottomNavigation {
-//                        BottomSheetItem(
-//                            icon = R.drawable.home, isIconSelected = iconColor
-//                        ) {
-//                            iconColor = !iconColor
-//                        }
-//                        BottomSheetItem(
-//                            icon = R.drawable.home, isIconSelected = iconColor
-//                        ) {
-//                            iconColor = !iconColor
-//                        }
-//                        BottomSheetItem(
-//                            icon = R.drawable.home, isIconSelected = iconColor
-//                        ) {
-//                            iconColor = !iconColor
-//                        }
-//                        BottomSheetItem(
-//                            icon = R.drawable.home, isIconSelected = iconColor
-//                        ) {
-//                            iconColor = !iconColor
-//                        }
-//                    }
-//                }) {
-//                    Spacer(modifier = Modifier.height(it.calculateBottomPadding()))
-//                }
-            }
+            /*    Surface(modifier = Modifier.fillMaxWidth()) {
+    //                Scaffold(bottomBar = {
+    //                    BottomNavigation {
+    //                        BottomSheetItem(
+    //                            icon = R.drawable.home, isIconSelected = iconColor
+    //                        ) {
+    //                            iconColor = !iconColor
+    //                        }
+    //                        BottomSheetItem(
+    //                            icon = R.drawable.home, isIconSelected = iconColor
+    //                        ) {
+    //                            iconColor = !iconColor
+    //                        }
+    //                        BottomSheetItem(
+    //                            icon = R.drawable.home, isIconSelected = iconColor
+    //                        ) {
+    //                            iconColor = !iconColor
+    //                        }
+    //                        BottomSheetItem(
+    //                            icon = R.drawable.home, isIconSelected = iconColor
+    //                        ) {
+    //                            iconColor = !iconColor
+    //                        }
+    //                    }
+    //                }) {
+    //                    Spacer(modifier = Modifier.height(it.calculateBottomPadding()))
+    //                }
+                }*/
 
 
         }
 
-
+        FloatActionButton(
+            onClick = { /*TODO*/ },
+            modifier = Modifier
+                .padding(bottom = 105.dp, end = 16.dp)
+                .align(alignment = Alignment.BottomEnd)
+        )
     }
 
 

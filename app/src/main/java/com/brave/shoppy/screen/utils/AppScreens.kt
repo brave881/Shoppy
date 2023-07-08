@@ -17,12 +17,12 @@ import javax.inject.Inject
 
 class AppScreens @Inject constructor() {
     fun signInScreen() = SignInScreen()
-    fun homeScreen() = HomeScreen()
+    fun homeScreen(): HomeScreen = HomeScreen()
     fun addressScreen() = AddressScreen()
     fun bagScreen() = BagScreen()
     fun cartScreen() = CartScreen()
     fun commentScreen() = CommentScreen()
-    fun detailsScreen() = DetailsScreen()
+    fun detailsScreen(): DetailsScreen = DetailsScreen()
     fun favouriteScreen() = FavouriteScreen()
     fun orderReviewScreen() = OrderReviewScreen()
     fun paymentScreen() = PaymentScreen()

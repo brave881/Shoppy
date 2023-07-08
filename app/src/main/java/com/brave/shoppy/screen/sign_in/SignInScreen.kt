@@ -1,5 +1,6 @@
 package com.brave.shoppy.screen.sign_in
 
+import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -20,15 +21,10 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import cafe.adriel.voyager.hilt.getViewModel
-import cafe.adriel.voyager.navigator.tab.LocalTabNavigator
 import com.brave.shoppy.R
 import com.brave.shoppy.navigation.AppScreen
 import com.brave.shoppy.screen.sign_in.components.SignInButton
 import com.brave.shoppy.ui.theme.ShoppyTheme
-import com.brave.shoppy.ui.theme.black100
-import com.brave.shoppy.ui.theme.black60
-import com.brave.shoppy.ui.theme.primary100
-import com.brave.shoppy.ui.theme.red100
 import com.brave.shoppy.utils.extraLarge
 import com.brave.shoppy.utils.large
 import com.brave.shoppy.utils.small
@@ -49,7 +45,6 @@ fun SignInScreenContent(viewModel: SignInScreenViewModel) {
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-
             Column(
                 modifier = Modifier.weight(0.75f),
                 verticalArrangement = Arrangement.SpaceBetween,
@@ -60,7 +55,6 @@ fun SignInScreenContent(viewModel: SignInScreenViewModel) {
                 Text(
                     text = "Shoppy",
                     fontFamily = FontFamily(Font(R.font.nunito_extra_bold)),
-                    color = primary100,
                     fontWeight = FontWeight.ExtraBold,
                     fontSize = large,
                     textAlign = TextAlign.Center
@@ -80,7 +74,6 @@ fun SignInScreenContent(viewModel: SignInScreenViewModel) {
                 Text(
                     text = "Discover you style",
                     fontSize = extraLarge,
-                    color = black100,
                     fontFamily = FontFamily(Font(R.font.nunito_extra_bold)),
                     fontWeight = FontWeight.ExtraBold,
                     textAlign = TextAlign.Center,
@@ -92,7 +85,6 @@ fun SignInScreenContent(viewModel: SignInScreenViewModel) {
                 Text(
                     text = "Get quality and classy products at very\n" + "affordable prices.",
                     fontSize = small,
-                    color = black60,
                     fontFamily = FontFamily(Font(R.font.nunito)),
                     fontWeight = FontWeight(700),
                     textAlign = TextAlign.Center
@@ -104,22 +96,21 @@ fun SignInScreenContent(viewModel: SignInScreenViewModel) {
                 modifier = Modifier.weight(0.25f), verticalArrangement = Arrangement.Bottom
             ) {
                 SignInButton(
-                    text = "Sign in with Google", backgroundColor = red100, icon = R.drawable.google
+                    text = "Sign in with Google", icon = R.drawable.google
                 ) {
-
                     viewModel.onEvent(SignInScreenEvent.SignIn("", ""))
+//                    Toast.makeText(MainActivity(), "", Toast.LENGTH_LONG).show()
+                    Log.d("TAG", "SignInScreenContent: clicked")
                 }
                 Spacer(modifier = Modifier.height(8.dp))
                 SignInButton(
-                    text = "Sign in with Facebook",
-                    backgroundColor = primary100,
-                    icon = R.drawable.facebook
+                    text = "Sign in with Facebook", icon = R.drawable.facebook
                 ) {
 
                 }
                 Spacer(modifier = Modifier.height(8.dp))
                 SignInButton(
-                    text = "Sign in with Apple", backgroundColor = black100, icon = R.drawable.apple
+                    text = "Sign in with Apple", icon = R.drawable.apple
                 ) {
 
                 }

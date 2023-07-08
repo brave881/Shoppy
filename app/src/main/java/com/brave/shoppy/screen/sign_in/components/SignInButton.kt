@@ -14,14 +14,12 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.brave.shoppy.R
-import com.brave.shoppy.ui.theme.white100
 import com.brave.shoppy.utils.signInButtonHeight
 import com.brave.shoppy.utils.signInButtonWidth
 import com.brave.shoppy.utils.small
@@ -31,7 +29,6 @@ import com.brave.shoppy.utils.small
 fun SignInButton(
     modifier: Modifier = Modifier,
     text: String,
-    backgroundColor: Color,
     icon: Int,
     onClick: () -> Unit
 ) {
@@ -39,9 +36,9 @@ fun SignInButton(
         modifier = modifier
             .width(signInButtonWidth)
             .height(signInButtonHeight),
-        onClick =  onClick,
+        onClick = onClick,
         shape = RoundedCornerShape(10.dp),
-        colors = ButtonDefaults.buttonColors(backgroundColor),
+        colors = ButtonDefaults.buttonColors(),
     ) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
@@ -57,7 +54,6 @@ fun SignInButton(
                 text = text,
                 fontFamily = FontFamily(Font(R.font.nunito)),
                 fontSize = small,
-                color = white100,
                 textAlign = TextAlign.Center
             )
             Spacer(modifier = Modifier.width(20.dp))

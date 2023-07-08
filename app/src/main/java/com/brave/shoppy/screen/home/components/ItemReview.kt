@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -14,7 +15,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -27,9 +27,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import com.brave.shoppy.R
-import com.brave.shoppy.ui.theme.black100
-import com.brave.shoppy.ui.theme.black40
-import com.brave.shoppy.ui.theme.white100
 import com.brave.shoppy.utils.medium
 import com.brave.shoppy.utils.small
 
@@ -43,17 +40,14 @@ fun ItemReview(
     onClickImage: () -> Unit,
     onClickFavButton: () -> Unit
 ) {
-
     Column(
-        modifier = modifier
-            .height(400.dp)
-            .width(200.dp)
+//        modifier = modifier.fillMaxSize()
     ) {
         Card(
             modifier = Modifier
-                .width(200.dp)
-                .height(280.dp)
-                .padding(bottom = 8.dp),
+                .padding(bottom = 8.dp)
+                .fillMaxHeight(0.6f)
+                .width(200.dp),
             shape = RoundedCornerShape(20.dp),
         ) {
             Box(
@@ -73,32 +67,32 @@ fun ItemReview(
                 FavButton(onClickFavButton)
             }
         }
-
-        Text(
-            text = name,
-            fontSize = medium,
-            color = black100,
-            fontFamily = FontFamily(Font(R.font.nunito)),
-            fontWeight = FontWeight(600)
-        )
-        Spacer(modifier = Modifier.height(10.dp))
-
-
-        Row(modifier = Modifier.fillMaxWidth()) {
+        Column(modifier = Modifier.fillMaxHeight(0.4f)) {
             Text(
-                text = price,
-                fontFamily = FontFamily(Font(R.font.nunito_extra_bold)),
+                text = name,
                 fontSize = medium,
-                color = black100
-            )
-            Spacer(modifier = Modifier.width(8.dp))
-            Text(
-                text = deprecatedPrice,
-                color = black40,
                 fontFamily = FontFamily(Font(R.font.nunito)),
-                textDecoration = TextDecoration.LineThrough,
-                fontSize = small
+                fontWeight = FontWeight(600)
             )
+            Spacer(modifier = Modifier.height(10.dp))
+
+
+            Row(modifier = Modifier.fillMaxWidth()) {
+                Text(
+                    text = price,
+                    fontFamily = FontFamily(Font(R.font.nunito_extra_bold)),
+                    fontSize = medium,
+                )
+                Spacer(modifier = Modifier.width(8.dp))
+                Text(
+                    text = deprecatedPrice,
+                    fontFamily = FontFamily(Font(R.font.nunito)),
+                    textDecoration = TextDecoration.LineThrough,
+                    fontSize = small
+                )
+            }
+
+
         }
 
     }
@@ -111,7 +105,6 @@ fun FavButton(onClickFavButton: () -> Unit) {
             .height(48.dp)
             .width(48.dp)
             .padding(top = 10.dp, end = 10.dp),
-        colors = CardDefaults.cardColors(white100),
         shape = RoundedCornerShape(18.dp)
     ) {
         Column(verticalArrangement = Arrangement.Center,

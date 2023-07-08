@@ -1,5 +1,5 @@
 package com.brave.shoppy.screen.home
 
-interface HomeScreenEvent {
-
+sealed interface HomeScreenEvent {
+    object NavigateToDetailsScreen : HomeScreenEvent
 }

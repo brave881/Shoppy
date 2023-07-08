@@ -1,8 +1,12 @@
 package com.brave.shoppy.navigation
 
+import android.util.Log
+import cafe.adriel.voyager.core.screen.Screen
 import kotlinx.coroutines.flow.MutableSharedFlow
 import javax.inject.Inject
+import javax.inject.Singleton
 
+@Singleton
 class NavigationHandler @Inject constructor() : AppNavigator, NavigationDispatcher {
 
 
@@ -17,6 +21,12 @@ class NavigationHandler @Inject constructor() : AppNavigator, NavigationDispatch
 
     override suspend fun navigateTo(screen: List<AppScreen>) = navigator {
         push(screen)
+    }
+
+    override suspend fun navigateToTab(screen: Screen) {
+        navigator {
+            push(screen)
+        }
     }
 
     override suspend fun replace(screen: AppScreen) = navigator {

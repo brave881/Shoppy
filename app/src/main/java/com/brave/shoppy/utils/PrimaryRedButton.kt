@@ -1,10 +1,12 @@
-package com.brave.shoppy.screen.sign_in.components
+package com.brave.shoppy.utils
 
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Row
+
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
@@ -20,44 +22,38 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.brave.shoppy.R
-import com.brave.shoppy.utils.signInButtonHeight
-import com.brave.shoppy.utils.signInButtonWidth
-import com.brave.shoppy.utils.small
 
 
 @Composable
-fun SignInButton(
+fun PrimaryRedButton(
     modifier: Modifier = Modifier,
     text: String,
-    icon: Int,
+    icon: Int? = null,
     onClick: () -> Unit
 ) {
     Button(
         modifier = modifier
-            .width(signInButtonWidth)
-            .height(signInButtonHeight),
+            .height(mediumCardSize_48)
+            .fillMaxWidth(),
         onClick = onClick,
         shape = RoundedCornerShape(10.dp),
         colors = ButtonDefaults.buttonColors(),
     ) {
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceBetween,
-            modifier = Modifier.fillMaxSize()
-        ) {
-            Icon(
-                modifier = Modifier.align(Alignment.CenterVertically),
-                painter = painterResource(icon),
-                contentDescription = "Google icon",
-            )
-            Text(
+
+        Box(modifier=Modifier.fillMaxSize(),contentAlignment = Alignment.CenterStart) {
+            if (icon != null) {
+                Icon(
+                    modifier = Modifier.align(Alignment.CenterStart),
+                    painter = painterResource(icon),
+                    contentDescription = "Google icon",
+                )
+            }
+            Text(modifier=Modifier.align(Alignment.Center),
                 text = text,
                 fontFamily = FontFamily(Font(R.font.nunito)),
                 fontSize = small,
                 textAlign = TextAlign.Center
             )
-            Spacer(modifier = Modifier.width(20.dp))
         }
-
     }
 }

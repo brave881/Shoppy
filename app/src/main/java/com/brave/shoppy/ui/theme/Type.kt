@@ -6,6 +6,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
 import com.brave.shoppy.R
 
@@ -31,7 +32,20 @@ val Typography = Typography(
         fontFamily = FontFamily(Font(R.font.nunito)),
         fontWeight = FontWeight(400),
         color = Color(0x661F1F24),
+    ),
+//// semibold/h3
+//    semibold = TextStyle(
+//        fontSize = 16.sp,
+//        fontFamily = FontFamily(Font(R.font.nunito)),
+//        fontWeight = FontWeight(600),
+//        color = Color(0xFF1F1F24),
+//    )
+
+    titleSmall = TextStyle(
+        fontSize = 14.sp,
+        fontFamily = FontFamily(Font(R.font.nunito)),
+        fontWeight = FontWeight(700),
+        color = Color(0xFF63A1FF),
+        textAlign = TextAlign.Center,
     )
-
-
 )

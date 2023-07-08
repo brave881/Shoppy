@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -23,8 +24,9 @@ import androidx.compose.ui.unit.dp
 import cafe.adriel.voyager.hilt.getViewModel
 import com.brave.shoppy.R
 import com.brave.shoppy.navigation.AppScreen
-import com.brave.shoppy.screen.sign_in.components.SignInButton
+import com.brave.shoppy.utils.PrimaryRedButton
 import com.brave.shoppy.ui.theme.ShoppyTheme
+import com.brave.shoppy.utils.bottomPadding_20
 import com.brave.shoppy.utils.extraLarge
 import com.brave.shoppy.utils.large
 import com.brave.shoppy.utils.small
@@ -95,7 +97,8 @@ fun SignInScreenContent(viewModel: SignInScreenViewModel) {
             Column(
                 modifier = Modifier.weight(0.25f), verticalArrangement = Arrangement.Bottom
             ) {
-                SignInButton(
+                PrimaryRedButton(
+                    modifier = Modifier.padding(horizontal = bottomPadding_20),
                     text = "Sign in with Google", icon = R.drawable.google
                 ) {
                     viewModel.onEvent(SignInScreenEvent.SignIn("", ""))
@@ -103,13 +106,15 @@ fun SignInScreenContent(viewModel: SignInScreenViewModel) {
                     Log.d("TAG", "SignInScreenContent: clicked")
                 }
                 Spacer(modifier = Modifier.height(8.dp))
-                SignInButton(
+                PrimaryRedButton(
+                    modifier = Modifier.padding(horizontal = bottomPadding_20),
                     text = "Sign in with Facebook", icon = R.drawable.facebook
                 ) {
 
                 }
                 Spacer(modifier = Modifier.height(8.dp))
-                SignInButton(
+                PrimaryRedButton(
+                    modifier = Modifier.padding(horizontal = bottomPadding_20),
                     text = "Sign in with Apple", icon = R.drawable.apple
                 ) {
 

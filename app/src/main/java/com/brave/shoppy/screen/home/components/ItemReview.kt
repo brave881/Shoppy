@@ -46,13 +46,13 @@ fun ItemReview(
 
     Column(
         modifier = modifier
-            .height(300.dp)
-            .width(188.dp)
+            .height(400.dp)
+            .width(200.dp)
     ) {
         Card(
             modifier = Modifier
-                .width(188.dp)
-                .height(230.dp)
+                .width(200.dp)
+                .height(280.dp)
                 .padding(bottom = 8.dp),
             shape = RoundedCornerShape(20.dp),
         ) {

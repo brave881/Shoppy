@@ -41,11 +41,19 @@ val Typography = Typography(
 //        color = Color(0xFF1F1F24),
 //    )
 
-    titleSmall = TextStyle(
+    bodySmall = TextStyle(
         fontSize = 14.sp,
         fontFamily = FontFamily(Font(R.font.nunito)),
         fontWeight = FontWeight(700),
         color = Color(0xFF63A1FF),
+        textAlign = TextAlign.Center,
+    ),
+
+    titleSmall = TextStyle(
+        fontSize = 14.sp,
+        fontFamily = FontFamily(Font(R.font.nunito)),
+        fontWeight = FontWeight(700),
+        color = Color(0xCC1F1F24),
         textAlign = TextAlign.Center,
     )
 )

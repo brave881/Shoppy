@@ -1,6 +1,5 @@
 package com.brave.shoppy.ui.theme
 
-import androidx.compose.foundation.background
 import androidx.compose.ui.graphics.Color
 
 val md_theme_light_primary = Color(0xFF63A1FF)
@@ -68,3 +67,7 @@ val md_theme_dark_scrim = Color(0xFF000000)
 
 val seed = Color(0xFF63A1FF)
 val settingsHelpBackground = Color(0x3363A1FF)
+val primaryTextFieldBackground = Color(0xFFEDEDED)
+val primaryRedColor = Color(0xFFFF6060)
+
+

@@ -62,7 +62,7 @@ fun SettingsHelpCard(onClick: () -> Unit) {
             Text(
                 modifier = Modifier.padding(start = primaryPadding),
                 text = stringResource(R.string.feel_free_to_ask_we_ready_to_help),
-                style = MaterialTheme.typography.titleSmall
+                style = MaterialTheme.typography.bodySmall
             )
         }
     }

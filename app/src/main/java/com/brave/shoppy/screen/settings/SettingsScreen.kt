@@ -23,6 +23,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import cafe.adriel.voyager.hilt.getViewModel
 import com.brave.shoppy.R
 import com.brave.shoppy.navigation.AppScreen
 import com.brave.shoppy.screen.settings.components.SettingsHelpCard
@@ -42,15 +43,14 @@ import com.brave.shoppy.utils.smallPadding_10
 class SettingsScreen : AppScreen() {
     @Composable
     override fun Content() {
-        SettingsScreenContent()
+        val viewModel = getViewModel<SettingsScreenViewModel>()
+        SettingsScreenContent(viewModel::onEventDispatcher)
     }
 
 
     @OptIn(ExperimentalMaterial3Api::class)
     @Composable
-    private fun SettingsScreenContent(
-
-    ) {
+    private fun SettingsScreenContent(onEvent: (SettingsScreenEvent) -> Unit) {
 
         var notificationState by remember { mutableStateOf(true) }
         var darkModeState by remember { mutableStateOf(false) }
@@ -59,7 +59,12 @@ class SettingsScreen : AppScreen() {
             CenterAlignedTopAppBar(
                 modifier = Modifier.padding(start = largeHorizontalPadding_24),
                 navigationIcon = {
-                    Icon(imageVector = Icons.Filled.ArrowBack, contentDescription = "back")
+                    Icon(
+                        imageVector = Icons.Filled.ArrowBack,
+                        contentDescription = "back",
+                        modifier = Modifier.clickable {
+                            onEvent.invoke(SettingsScreenEvent.Back)
+                        })
                 },
                 title = {
                     Text(text = stringResource(R.string.settings))
@@ -86,7 +91,7 @@ class SettingsScreen : AppScreen() {
                     Row(
                         Modifier
                             .clickable {
-
+                                onEvent.invoke(SettingsScreenEvent.NavigateToEditProfile)
                             }
                             .padding(
                                 horizontal = largeHorizontalPadding_24,
@@ -130,7 +135,7 @@ class SettingsScreen : AppScreen() {
                         painter = painterResource(id = R.drawable.language_white),
                         text = stringResource(R.string.language),
                         onClick = {
-
+                            onEvent.invoke(SettingsScreenEvent.NavigateToEditLanguage)
                         })
                     SettingsItem(
                         painter = painterResource(id = R.drawable.map_pin),
@@ -151,7 +156,7 @@ class SettingsScreen : AppScreen() {
                         switchState = notificationState,
                         onCheckedChange = { notificationState = it },
                         onClick = {
-
+                            notificationState = !notificationState
                         })
                     SettingsItemWithToggle(
                         painter = painterResource(id = R.drawable.moon),
@@ -160,7 +165,7 @@ class SettingsScreen : AppScreen() {
                         backgroundColor = MaterialTheme.colorScheme.onTertiaryContainer,
                         onCheckedChange = { darkModeState = it },
                         onClick = {
-
+                            darkModeState = !darkModeState
                         })
                 }
                 Column(Modifier.fillMaxWidth()) {

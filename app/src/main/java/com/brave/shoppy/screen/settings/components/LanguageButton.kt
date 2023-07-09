@@ -79,7 +79,6 @@ fun LanguageButton(
                         painter = painterResource(id = R.drawable.thailand2),
                         contentDescription = "male"
                     )
-
                 }
 
                 LanguageType.INDONESIAN -> {

@@ -40,7 +40,7 @@ import com.brave.shoppy.screen.home.components.FloatActionButton
 import com.brave.shoppy.screen.home.components.ItemReview
 import com.brave.shoppy.ui.theme.ShoppyTheme
 import com.brave.shoppy.utils.PrimaryImageButton
-import com.brave.shoppy.utils.betweenItemTextPadding
+import com.brave.shoppy.utils.largePadding_24
 import com.brave.shoppy.utils.betweenTextPadding
 import com.brave.shoppy.utils.large
 import com.brave.shoppy.utils.primaryPadding
@@ -108,7 +108,7 @@ fun HomeScreenContent(
                 )
             }
 
-            Spacer(modifier = Modifier.height(betweenItemTextPadding))
+            Spacer(modifier = Modifier.height(largePadding_24))
             Card(
                 shape = RoundedCornerShape(15.dp),
                 modifier = Modifier
@@ -138,7 +138,7 @@ fun HomeScreenContent(
                     )
                 }
             }
-            Spacer(modifier = Modifier.height(betweenItemTextPadding))
+            Spacer(modifier = Modifier.height(largePadding_24))
 
             Text(
                 text = "Categories",

@@ -29,6 +29,7 @@ import com.brave.shoppy.navigation.NavigationHandler
 import com.brave.shoppy.screen.bag.BagScreen
 import com.brave.shoppy.screen.favourite.FavouriteScreen
 import com.brave.shoppy.screen.home.HomeScreen
+import com.brave.shoppy.screen.settings.SettingsScreen
 import com.brave.shoppy.screen.sign_in.SignInScreen
 import com.brave.shoppy.ui.theme.ShoppyTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -49,7 +50,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             ShoppyTheme {
 
-                Navigator(screen = SignInScreen()) { navigator ->
+                Navigator(screen = SettingsScreen()) { navigator ->
                     LaunchedEffect(key1 = navigator) {
                         navigationHandler.navigationArgs.onEach {
                             it.invoke(navigator)

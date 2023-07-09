@@ -1,3 +1,24 @@
 <resources>
     <string name="app_name">Shoppy</string>
+    <string name="settings">Settings</string>
+    <string name="account">Account</string>
+    <string name="language">Language</string>
+    <string name="edit_address">Edit address</string>
+    <string name="edit_credit_card">Edit credit card</string>
+    <string name="notification">Notification</string>
+    <string name="dark_mode">Dark mode</string>
+    <string name="sign_out">Sign out</string>
+    <string name="feel_free_to_ask_we_ready_to_help">Feel free to ask, We ready to help!</string>
+    <string name="edit_profile">Edit profile</string>
+    <string name="change_image">Change image</string>
+    <string name="first_name">First name</string>
+    <string name="last_name">Last name</string>
+    <string name="username">Username</string>
+    <string name="gender">Gender</string>
+    <string name="confirm">Confirm</string>
+    <string name="phone_number">Phone number</string>
+    <string name="email">Email</string>
+    <string name="english">English</string>
+    <string name="indonesian">Indonesian</string>
+    <string name="thailand">Thailand</string>
 </resources>

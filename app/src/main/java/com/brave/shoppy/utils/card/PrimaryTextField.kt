@@ -1,4 +1,4 @@
-package com.brave.shoppy.utils
+package com.brave.shoppy.utils.card
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -15,6 +15,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.input.VisualTransformation
 import com.brave.shoppy.ui.theme.primaryTextFieldBackground
+import com.brave.shoppy.utils.cornerShape_10
+import com.brave.shoppy.utils.horizontalPadding_12
+import com.brave.shoppy.utils.verticalPadding_12
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

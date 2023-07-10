@@ -2,13 +2,10 @@ package com.brave.shoppy.screen.settings.edit_profile
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
@@ -29,15 +26,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.unit.dp
 import com.brave.shoppy.R
 import com.brave.shoppy.navigation.AppScreen
-import com.brave.shoppy.screen.settings.SettingsScreenEvent
 import com.brave.shoppy.screen.settings.components.GenderButton
 import com.brave.shoppy.utils.GenderType
-import com.brave.shoppy.utils.ImageCard
-import com.brave.shoppy.utils.PrimaryBlueButton
-import com.brave.shoppy.utils.PrimaryTextField
+import com.brave.shoppy.utils.card.ImageCard
+import com.brave.shoppy.utils.buttons.PrimaryBlueButton
+import com.brave.shoppy.utils.card.PrimaryTextField
 import com.brave.shoppy.utils.betweenTextFieldPadding_8
 import com.brave.shoppy.utils.bottomPadding_20
 import com.brave.shoppy.utils.isEmail
@@ -194,5 +189,3 @@ class EditProfileScreen : AppScreen() {
         }
     }
 }
-
-

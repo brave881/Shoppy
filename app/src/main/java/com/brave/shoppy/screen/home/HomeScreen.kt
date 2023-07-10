@@ -39,7 +39,7 @@ import com.brave.shoppy.R
 import com.brave.shoppy.screen.home.components.FloatActionButton
 import com.brave.shoppy.screen.home.components.ItemReview
 import com.brave.shoppy.ui.theme.ShoppyTheme
-import com.brave.shoppy.utils.PrimaryImageButton
+import com.brave.shoppy.utils.card.PrimaryImageButton
 import com.brave.shoppy.utils.largePadding_24
 import com.brave.shoppy.utils.betweenTextPadding
 import com.brave.shoppy.utils.large

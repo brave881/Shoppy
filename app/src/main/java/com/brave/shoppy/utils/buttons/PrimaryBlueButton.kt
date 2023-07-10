@@ -1,4 +1,4 @@
-package com.brave.shoppy.utils
+package com.brave.shoppy.utils.buttons
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -19,7 +19,8 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.brave.shoppy.R
-import com.brave.shoppy.ui.theme.primaryTextFieldBackground
+import com.brave.shoppy.utils.mediumCardSize_48
+import com.brave.shoppy.utils.small
 
 @Composable
 fun PrimaryBlueButton(

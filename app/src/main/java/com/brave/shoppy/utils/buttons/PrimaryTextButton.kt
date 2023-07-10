@@ -1,6 +1,5 @@
-package com.brave.shoppy.utils
+package com.brave.shoppy.utils.buttons
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
@@ -15,31 +14,31 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.brave.shoppy.R
 
+
 @Composable
-fun PrimaryImageButton(
-    image: Int,
+fun PrimaryTextButton(
+    letter: String,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
-    backgroundColor: Color = Color.Gray
+    onSelected: Boolean = false
+
 ) {
     Card(
         modifier = modifier
             .width(48.dp)
-            .height(48.dp),
-        shape = RoundedCornerShape(
-            topStart = 10.dp,
-            topEnd = 0.dp,
-            bottomEnd = 10.dp,
-            bottomStart = 10.dp,
-        ), colors = CardDefaults.cardColors(containerColor = backgroundColor)
+            .height(48.dp), shape = RoundedCornerShape(
+            topStart = 10.dp, topEnd = 0.dp, bottomEnd = 10.dp, bottomStart = 10.dp,
+        ), colors = CardDefaults.cardColors(
+            containerColor = if (onSelected)
+                MaterialTheme.colorScheme.primary
+            else MaterialTheme.colorScheme.surfaceVariant
+        )
     ) {
         Row(
             modifier = Modifier
@@ -48,14 +47,16 @@ fun PrimaryImageButton(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.Center
         ) {
-            Image(
-                painter = painterResource(id = image),
-                contentDescription = "Category item",
+            Text(
+                text = letter,
                 modifier = Modifier
                     .height(24.dp)
-                    .width(24.dp)
+                    .width(24.dp),
+                style = MaterialTheme.typography.displaySmall.copy(
+                    fontFamily = FontFamily(Font(R.font.nunito_semi_bold)),
+                    textAlign = TextAlign.Center
+                )
             )
         }
     }
-
 }

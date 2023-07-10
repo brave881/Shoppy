@@ -24,7 +24,7 @@ import androidx.compose.ui.unit.dp
 import cafe.adriel.voyager.hilt.getViewModel
 import com.brave.shoppy.R
 import com.brave.shoppy.navigation.AppScreen
-import com.brave.shoppy.utils.PrimaryRedButton
+import com.brave.shoppy.utils.buttons.PrimaryRedButton
 import com.brave.shoppy.ui.theme.ShoppyTheme
 import com.brave.shoppy.utils.bottomPadding_20
 import com.brave.shoppy.utils.extraLarge

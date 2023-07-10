@@ -20,7 +20,9 @@ data class Spacing(
 data class CustomSize(
     val cartItemReviewHeight: Dp = 140.dp,
     val cartItemReviewButtonSize: Dp = 28.dp,
-    val cartItemReviewIconSize: Dp = 18.dp
+    val cartItemReviewIconSize: Dp = 18.dp,
+    val mapCardIconSize: Dp = 64.dp,
+    val mapCardItemHeight: Dp = 100.dp
 )
 
 val LocalSpacing = compositionLocalOf { Spacing() }
@@ -28,9 +30,7 @@ val LocalSize = compositionLocalOf { CustomSize() }
 
 
 val MaterialTheme.spacing: Spacing
-    @Composable
-    @ReadOnlyComposable
-    get() = LocalSpacing.current
+    @Composable @ReadOnlyComposable get() = LocalSpacing.current
 
 val MaterialTheme.size: CustomSize
     @Composable @ReadOnlyComposable get() = LocalSize.current

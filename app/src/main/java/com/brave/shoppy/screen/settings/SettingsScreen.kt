@@ -28,8 +28,8 @@ import com.brave.shoppy.R
 import com.brave.shoppy.navigation.AppScreen
 import com.brave.shoppy.screen.settings.components.SettingsHelpCard
 import com.brave.shoppy.utils.Chevron
-import com.brave.shoppy.utils.ImageCard
-import com.brave.shoppy.utils.PrimaryRedButton
+import com.brave.shoppy.utils.card.ImageCard
+import com.brave.shoppy.utils.buttons.PrimaryRedButton
 import com.brave.shoppy.screen.settings.components.SettingsItem
 import com.brave.shoppy.screen.settings.components.SettingsItemWithToggle
 import com.brave.shoppy.utils.betweenTextPadding

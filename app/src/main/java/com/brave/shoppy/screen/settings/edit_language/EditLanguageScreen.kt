@@ -2,7 +2,6 @@ package com.brave.shoppy.screen.settings.edit_language
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -22,12 +21,9 @@ import androidx.compose.ui.res.stringResource
 import com.brave.shoppy.R
 import com.brave.shoppy.navigation.AppScreen
 import com.brave.shoppy.screen.settings.components.LanguageButton
-import com.brave.shoppy.utils.GenderType
 import com.brave.shoppy.utils.LanguageType
-import com.brave.shoppy.utils.PrimaryBlueButton
+import com.brave.shoppy.utils.buttons.PrimaryBlueButton
 import com.brave.shoppy.utils.bottomPadding_20
-import com.brave.shoppy.utils.isEmail
-import com.brave.shoppy.utils.isPhone
 import com.brave.shoppy.utils.largeHorizontalPadding_24
 
 class EditLanguageScreen : AppScreen() {

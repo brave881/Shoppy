@@ -21,4 +21,9 @@
     <string name="english">English</string>
     <string name="indonesian">Indonesian</string>
     <string name="thailand">Thailand</string>
+    <string name="shipment">Shipment</string>
+    <string name="your_items">Your items</string>
+    <string name="details">Details</string>
+    <string name="from">From:</string>
+    <string name="to">To:</string>
 </resources>

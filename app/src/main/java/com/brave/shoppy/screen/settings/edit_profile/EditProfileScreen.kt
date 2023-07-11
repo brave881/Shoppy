@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
@@ -86,7 +87,7 @@ class EditProfileScreen : AppScreen() {
                 ) {
                     ImageCard(
                         image = painterResource(id = R.drawable.placeholder),
-                        size = xLargeCardSize_100
+                        modifier = Modifier.size(xLargeCardSize_100)
                     )
                     Text(
                         modifier = Modifier

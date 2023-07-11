@@ -13,7 +13,7 @@ import com.brave.shoppy.screen.search.SearchScreen
 import com.brave.shoppy.screen.settings.SettingsScreen
 import com.brave.shoppy.screen.settings.edit_language.EditLanguageScreen
 import com.brave.shoppy.screen.settings.edit_profile.EditProfileScreen
-import com.brave.shoppy.screen.shipment.ShipmentScreen
+import com.brave.shoppy.screen.bag.shipment.ShipmentScreen
 import com.brave.shoppy.screen.sign_in.SignInScreen
 import javax.inject.Inject
 

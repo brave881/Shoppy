@@ -5,8 +5,7 @@ plugins {
     id 'com.google.dagger.hilt.android'
     id 'kotlin-android'
 //    id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
-
-
+    id 'com.google.relay' version '0.3.06'
 }
 
 android {

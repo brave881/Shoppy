@@ -11,17 +11,17 @@ import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.Dp
-import com.brave.shoppy.utils.cornerShape_10
 import com.brave.shoppy.utils.mediumCardSize_48
+import com.brave.shoppy.utils.mediumCornerShape_10
 
 @Composable
 fun ImageCard(
-    size: Dp = mediumCardSize_48,
-    shape: Shape = RoundedCornerShape(cornerShape_10),
+    modifier: Modifier = Modifier.size(mediumCardSize_48),
+    shape: Shape = RoundedCornerShape(mediumCornerShape_10),
     image: Painter
 ) {
     Card(
-        modifier = Modifier.size(size), shape = shape,
+        modifier = modifier, shape = shape,
     ) {
         Image(
             modifier = Modifier.fillMaxSize(),

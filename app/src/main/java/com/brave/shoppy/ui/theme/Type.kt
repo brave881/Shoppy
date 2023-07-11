@@ -48,6 +48,13 @@ val Typography = Typography(
         color = Color(0xFF63A1FF),
         textAlign = TextAlign.Center,
     ),
+    bodyMedium = TextStyle(
+        fontSize = 16.sp,
+        fontFamily = FontFamily(Font(R.font.nunito)),
+        fontWeight = FontWeight(700),
+        color = Color(0xFF63A1FF),
+        textAlign = TextAlign.Center,
+    ),
 
     titleSmall = TextStyle(
         fontSize = 14.sp,
@@ -56,4 +63,16 @@ val Typography = Typography(
         color = Color(0xCC1F1F24),
         textAlign = TextAlign.Center,
     )
+)
+val styleCargoName_16 = TextStyle(
+    fontSize = 16.sp,
+    fontFamily = FontFamily(Font(R.font.nunito)),
+    fontWeight = FontWeight(700),
+    color = Color(0xFFF8F8F8),
+)
+val styleCargoDeliverDate_16 = TextStyle(
+    fontSize = 16.sp,
+    fontFamily = FontFamily(Font(R.font.nunito)),
+    fontWeight = FontWeight(600),
+    color = Color(0xCCF8F8F8),
 )

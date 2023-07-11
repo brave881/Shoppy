@@ -19,7 +19,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.painter.Painter
 import com.brave.shoppy.utils.Chevron
-import com.brave.shoppy.utils.cornerShape_5
+import com.brave.shoppy.utils.smallCornerShape_5
 import com.brave.shoppy.utils.largePadding_24
 import com.brave.shoppy.utils.primaryPadding
 import com.brave.shoppy.utils.smallCardSize_24
@@ -45,7 +45,7 @@ fun SettingsItem(
         Row(verticalAlignment = Alignment.CenterVertically) {
             Card(
                 Modifier.size(smallCardSize_24),
-                shape = RoundedCornerShape(cornerShape_5),
+                shape = RoundedCornerShape(smallCornerShape_5),
                 colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.primary)
             ) {
                 Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
@@ -63,6 +63,6 @@ fun SettingsItem(
                 )
             )
         }
-        Chevron(size = smallCardSize_24, cornerShape = cornerShape_5)
+        Chevron(size = smallCardSize_24, cornerShape = smallCornerShape_5)
     }
 }

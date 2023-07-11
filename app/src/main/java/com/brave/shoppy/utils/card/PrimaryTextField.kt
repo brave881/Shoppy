@@ -15,7 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.input.VisualTransformation
 import com.brave.shoppy.ui.theme.primaryTextFieldBackground
-import com.brave.shoppy.utils.cornerShape_10
+import com.brave.shoppy.utils.mediumCornerShape_10
 import com.brave.shoppy.utils.horizontalPadding_12
 import com.brave.shoppy.utils.verticalPadding_12
 
@@ -31,7 +31,7 @@ fun PrimaryTextField(
 ) {
     Card(
         modifier = modifier,
-        shape = RoundedCornerShape(cornerShape_10),
+        shape = RoundedCornerShape(mediumCornerShape_10),
         colors = CardDefaults.cardColors(containerColor = primaryTextFieldBackground)
     ) {
         Text(

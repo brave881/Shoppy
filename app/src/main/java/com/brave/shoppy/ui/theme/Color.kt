@@ -69,5 +69,6 @@ val seed = Color(0xFF63A1FF)
 val settingsHelpBackground = Color(0x3363A1FF)
 val primaryTextFieldBackground = Color(0xFFEDEDED)
 val primaryRedColor = Color(0xFFFF6060)
+val borderGrayColor = Color(0xffC4C4C4)
 
 

@@ -14,36 +14,34 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import com.brave.shoppy.R
-import com.brave.shoppy.utils.cornerShape_5
+import com.brave.shoppy.utils.smallCornerShape_5
 import com.brave.shoppy.utils.smallCardSize_24
 
 @Composable
 fun GenderButton(
     modifier: Modifier = Modifier,
     isMale: Boolean = true,
-    isClicked: Boolean = false,
+    isClicked:Boolean=false,
     onClick: () -> Unit
 ) {
-    var cardColors = CardDefaults.cardColors()
-    if (isClicked) cardColors =
-        CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.primary)
-    Card(
-        modifier = modifier.size(smallCardSize_24),
-        shape = RoundedCornerShape(cornerShape_5),
-        colors = cardColors
-    ) {
+    var cardColors=CardDefaults.cardColors()
+    if (isClicked) cardColors=CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.primary)
+    Card(modifier = modifier.size(smallCardSize_24), shape = RoundedCornerShape(smallCornerShape_5), colors =cardColors ) {
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .clickable { onClick() },
-            contentAlignment = Alignment.Center
+                .clickable { onClick() }, contentAlignment = Alignment.Center
         ) {
-            if (isMale) Icon(
-                painter = painterResource(id = R.drawable.male), contentDescription = "male"
-            )
-            else Icon(
-                painter = painterResource(id = R.drawable.female), contentDescription = "female"
-            )
+            if (isMale)
+                Icon(
+                    painter = painterResource(id = R.drawable.male),
+                    contentDescription = "male"
+                )
+            else
+                Icon(
+                    painter = painterResource(id = R.drawable.female),
+                    contentDescription = "female"
+                )
         }
     }
 }

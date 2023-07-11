@@ -13,6 +13,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
@@ -28,16 +29,18 @@ fun PrimaryBlueButton(
     text: String,
     isCanConfirm: Boolean = true,
     icon: Int? = null,
+    onSelected: Boolean = false,
     onClick: () -> Unit
 ) {
-    Button(enabled = isCanConfirm,
+    Button(
+        enabled = isCanConfirm,
         modifier = modifier
             .height(mediumCardSize_48)
             .fillMaxWidth(),
         onClick = onClick,
         shape = RoundedCornerShape(10.dp),
         colors = ButtonDefaults.buttonColors(
-            containerColor = MaterialTheme.colorScheme.primary
+            containerColor = if (onSelected) MaterialTheme.colorScheme.primary else Color.Gray
         ),
     ) {
 

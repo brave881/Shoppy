@@ -1,7 +1,6 @@
 package com.brave.shoppy.screen.details
 
 
-import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -39,21 +38,20 @@ import com.brave.shoppy.screen.details.utils.SizeLetters
 import com.brave.shoppy.ui.theme.ShoppyTheme
 import com.brave.shoppy.ui.theme.spacing
 import com.brave.shoppy.utils.MyTopAppBar
-import com.brave.shoppy.utils.card.PrimaryImageButton
 import com.brave.shoppy.utils.buttons.PrimaryTextButton
+import com.brave.shoppy.utils.card.PrimaryImageButton
 
 class DetailsScreen : AppScreen() {
 
     @Composable
     override fun Content() {
         val viewModel = getViewModel<DetailsScreenViewModelImpl>()
-        viewModel.addCloseable {}
-        DetailsScreenContent()
-        Log.d("DetailsScreen", "Content: ")
+
+        DetailsScreenContent(viewModel::onEventDispatcher)
     }
 
     @Composable
-    fun DetailsScreenContent() {
+    fun DetailsScreenContent(onEventDispatcher: (DetailsScreenEvent) -> Unit) {
         var favIconState by remember {
             mutableStateOf(false)
         }
@@ -62,7 +60,8 @@ class DetailsScreen : AppScreen() {
             Box(modifier = Modifier.fillMaxSize()) {
 
                 Column(modifier = Modifier.fillMaxWidth()) {
-                    MyTopAppBar(title = "Items", onClickIcon = {})
+                    MyTopAppBar(title = "Items",
+                        onClickIcon = { onEventDispatcher(DetailsScreenEvent.Back) })
                     Spacer(modifier = Modifier.height(MaterialTheme.spacing.medium))
                     Row(
                         modifier = Modifier
@@ -173,7 +172,7 @@ class DetailsScreen : AppScreen() {
                             )
                             PrimaryImageButton(
                                 image = R.drawable.shopping_cart,
-                                onClick = { /*TODO*/ },
+                                onClick = { onEventDispatcher(DetailsScreenEvent.NavigateToCartScreen) },
                                 backgroundColor = MaterialTheme.colorScheme.primary
                             )
                         }
@@ -190,7 +189,7 @@ class DetailsScreen : AppScreen() {
     @Composable
     fun DetailsScreenContentPreview() {
         ShoppyTheme() {
-            DetailsScreenContent()
+//            DetailsScreenContent(viewModel::onEventDispatcher)
         }
     }
 }

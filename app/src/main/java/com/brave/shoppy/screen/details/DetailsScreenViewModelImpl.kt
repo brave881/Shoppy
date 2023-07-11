@@ -8,11 +8,14 @@ import javax.inject.Inject
 
 @HiltViewModel
 class DetailsScreenViewModelImpl @Inject constructor(
-//    val detailsScreenDirection: DetailsScreenDirectionImpl
+    private val detailsScreenDirection: DetailsScreenDirection
 ) : ViewModel() {
-    fun onEvent() {
+    fun onEventDispatcher(event: DetailsScreenEvent) {
         viewModelScope.launch {
-
+            when (event) {
+                DetailsScreenEvent.Back -> detailsScreenDirection.back()
+                DetailsScreenEvent.NavigateToCartScreen -> detailsScreenDirection.navigateToCartScreen()
+            }
         }
     }
 

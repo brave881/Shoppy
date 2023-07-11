@@ -36,8 +36,8 @@ import com.brave.shoppy.utils.buttons.PrimaryBlueButton
 import com.brave.shoppy.utils.card.PrimaryTextField
 import com.brave.shoppy.utils.betweenTextFieldPadding_8
 import com.brave.shoppy.utils.bottomPadding_20
-import com.brave.shoppy.utils.isEmail
-import com.brave.shoppy.utils.isPhone
+import com.brave.shoppy.utils.validators.isEmail
+import com.brave.shoppy.utils.validators.isPhone
 import com.brave.shoppy.utils.largeHorizontalPadding_24
 import com.brave.shoppy.utils.primaryPadding
 import com.brave.shoppy.utils.smallPadding_10

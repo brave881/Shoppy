@@ -1,5 +1,6 @@
 package com.brave.shoppy.screen.address
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -12,6 +13,7 @@ import androidx.compose.material3.BottomSheetScaffold
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SearchBar
 import androidx.compose.material3.Text
 import androidx.compose.material3.rememberBottomSheetScaffoldState
@@ -28,20 +30,25 @@ import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import cafe.adriel.voyager.hilt.getViewModel
 import com.brave.shoppy.R
 import com.brave.shoppy.navigation.AppScreen
 import com.brave.shoppy.screen.address.components.AddressDetailCard
 import com.brave.shoppy.ui.theme.spacing
+import com.brave.shoppy.utils.MyTopAppBar
+import com.brave.shoppy.utils.buttons.PrimaryBlueButton
 
 class AddressScreen : AppScreen() {
     @Composable
     override fun Content() {
-        AddressScreenContent()
+        val viewModel = getViewModel<AddressScreenViewModel>()
+        AddressScreenContent(viewModel::onEventDispatcher)
     }
 
+    @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
     @OptIn(ExperimentalMaterial3Api::class)
     @Composable
-    fun AddressScreenContent() {
+    fun AddressScreenContent(onEventDispatcher: (AddressScreenEvent) -> Unit) {
 
         val scope = rememberCoroutineScope()
         val scaffoldState = rememberBottomSheetScaffoldState()
@@ -50,62 +57,81 @@ class AddressScreen : AppScreen() {
         var active by remember { mutableStateOf(false) }
 
 
-        BottomSheetScaffold(
-            scaffoldState = scaffoldState,
-            sheetPeekHeight = 350.dp,
-            sheetContent = {
-                Column(
-                    Modifier
-                        .fillMaxSize()
-                        .padding(MaterialTheme.spacing.small),
-                    horizontalAlignment = Alignment.CenterHorizontally
-                ) {
-                    SearchBar(query = query,
-                        onQueryChange = { query = it },
-                        onSearch = { search = it },
-                        active = active,
-                        onActiveChange = { active = it },
-                        placeholder = { Text(text = "Search your City or street name  ") },
-                        trailingIcon = {
-                            Icon(
-                                painter = painterResource(id = R.drawable.search),
-                                tint = MaterialTheme.colorScheme.onSurfaceVariant,
-                                contentDescription = "Search icon"
-                            )
-                        }) {}
-                    Spacer(modifier = Modifier.height(MaterialTheme.spacing.medium))
 
+        Scaffold(bottomBar = {
+            PrimaryBlueButton(
+                text = "Go to payment", modifier = Modifier.padding(
+                    MaterialTheme.spacing.medium
+                )
+            ) {
+                onEventDispatcher(AddressScreenEvent.NavigateToPaymentScreen)
+
+            }
+        }, content = {
+            BottomSheetScaffold(scaffoldState = scaffoldState,
+                sheetPeekHeight = 350.dp,
+                sheetContent = {
                     Column(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(MaterialTheme.spacing.medium)
+                        Modifier
+                            .fillMaxSize()
+                            .padding(MaterialTheme.spacing.small),
+                        horizontalAlignment = Alignment.CenterHorizontally
                     ) {
-                        Text(
-                            text = "Your address",
-                            style = MaterialTheme.typography.displaySmall.copy(
-                                fontFamily = FontFamily(Font(R.font.nunito_bold)),
-                                textAlign = TextAlign.Start
-                            ),
-                            modifier = Modifier.padding(bottom = MaterialTheme.spacing.small)
-                        )
-                        LazyColumn(modifier = Modifier.fillMaxWidth()) {
-                            items(3) {
-                                AddressDetailCard(
-                                    city = "Indonesian, Cilacap", street = "32, Stasiun Street"
+                        SearchBar(query = query,
+                            onQueryChange = { query = it },
+                            onSearch = { search = it },
+                            active = active,
+                            onActiveChange = { active = it },
+                            placeholder = { Text(text = "Search your City or street name  ") },
+                            trailingIcon = {
+                                Icon(
+                                    painter = painterResource(id = R.drawable.search),
+                                    tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                                    contentDescription = "Search icon"
                                 )
-                                Spacer(modifier = Modifier.height(MaterialTheme.spacing.small))
+                            }) {}
+                        Spacer(modifier = Modifier.height(MaterialTheme.spacing.medium))
+
+                        Column(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(MaterialTheme.spacing.medium)
+                        ) {
+
+                            Text(
+                                text = "Your address",
+                                style = MaterialTheme.typography.displaySmall.copy(
+                                    fontFamily = FontFamily(Font(R.font.nunito_bold)),
+                                    textAlign = TextAlign.Start
+                                ),
+                                modifier = Modifier.padding(bottom = MaterialTheme.spacing.small)
+                            )
+                            LazyColumn(modifier = Modifier.fillMaxWidth()) {
+                                items(3) {
+                                    AddressDetailCard(
+                                        city = "Indonesian, Cilacap", street = "32, Stasiun Street"
+                                    )
+                                    Spacer(modifier = Modifier.height(MaterialTheme.spacing.small))
+                                }
                             }
+
                         }
 
                     }
+                },
+                topBar = {
+                    MyTopAppBar(title = "Address") {
+                        onEventDispatcher(AddressScreenEvent.Back)
+                    }
+
+
+                }) { innerPadding ->
+
+                Box(Modifier.padding(innerPadding)) {
 
                 }
-            }) { innerPadding ->
-
-            Box(Modifier.padding(innerPadding)) {
-
             }
-        }
+        })
     }
 
 

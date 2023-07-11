@@ -1,5 +1,6 @@
 package com.brave.shoppy.screen.cart
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -16,29 +17,35 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
+import cafe.adriel.voyager.hilt.getViewModel
 import com.brave.shoppy.R
 import com.brave.shoppy.navigation.AppScreen
 import com.brave.shoppy.screen.cart.components.CartItemReview
 import com.brave.shoppy.ui.theme.ShoppyTheme
 import com.brave.shoppy.ui.theme.spacing
 import com.brave.shoppy.utils.MyTopAppBar
+import com.brave.shoppy.utils.buttons.PrimaryBlueButton
 
 class CartScreen : AppScreen() {
     @Composable
     override fun Content() {
-        CartScreenContent()
+        val viewModel = getViewModel<CartScreenViewModel>()
+        CartScreenContent(viewModel::onEventDispatcher)
     }
 
+    @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
     @OptIn(ExperimentalMaterial3Api::class)
     @Composable
-    fun CartScreenContent() {
+    fun CartScreenContent(onEventDispatcher: (CartScreenEvent) -> Unit) {
         Box(modifier = Modifier.fillMaxSize()) {
             Column(
                 modifier = Modifier.fillMaxSize(),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 MyTopAppBar(
-                    title = "Cart", onClickIcon = {}, modifier = Modifier.fillMaxWidth()
+                    title = "Cart", onClickIcon = {
+                        onEventDispatcher(CartScreenEvent.Back)
+                    }, modifier = Modifier.fillMaxWidth()
                 )
 
                 val name = listOf(
@@ -94,12 +101,15 @@ class CartScreen : AppScreen() {
                         textAlign = TextAlign.Center
                     )
                 )
-                Scaffold(
-                    bottomBar = {
-
+                Scaffold(bottomBar = {
+                    PrimaryBlueButton(
+                        text = "Go to payment",
+                        modifier = Modifier.padding(MaterialTheme.spacing.medium)
+                    ) {
+                        onEventDispatcher(CartScreenEvent.NavigateToAddressScreen)
                     }
-                ) {
-                    it.calculateBottomPadding()
+                }) {
+
                 }
 
                 Column(
@@ -115,7 +125,7 @@ class CartScreen : AppScreen() {
     @Composable
     fun CartScreenContentPreview() {
         ShoppyTheme {
-            CartScreenContent()
+//            CartScreenContent(viewModel::onEventDispatcher)
         }
     }
 }

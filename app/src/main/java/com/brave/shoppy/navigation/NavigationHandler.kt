@@ -25,7 +25,7 @@ class NavigationHandler @Inject constructor() : AppNavigator, NavigationDispatch
 
     override suspend fun navigateToTab(screen: Screen) {
         navigator {
-            push(screen)
+            replace(screen)
         }
     }
 

@@ -110,7 +110,10 @@ fun ShoppyTheme(
     }
     CompositionLocalProvider(LocalSpacing provides Spacing(), LocalSize provides CustomSize()) {
         MaterialTheme(
-            colorScheme = colorScheme, typography = Typography, content = content, shapes = Shapes(
+            colorScheme = colorScheme,
+            typography = Typography,
+            content = content,
+            shapes = Shapes(
                 extraSmall = RoundedCornerShape(4.dp),
                 small = RoundedCornerShape(8.dp),
                 medium = RoundedCornerShape(12.dp),

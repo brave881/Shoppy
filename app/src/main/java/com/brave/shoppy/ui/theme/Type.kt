@@ -31,7 +31,7 @@ val Typography = Typography(
         fontSize = 14.sp,
         fontFamily = FontFamily(Font(R.font.nunito)),
         fontWeight = FontWeight(400),
-        color = Color(0x661F1F24),
+        color = Color(0x66020000),
     ),
 //// semibold/h3
 //    semibold = TextStyle(

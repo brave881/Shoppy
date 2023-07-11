@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -26,9 +27,10 @@ import com.brave.shoppy.ui.theme.ShoppyTheme
 @Composable
 fun MyTopAppBar(
     modifier: Modifier = Modifier,
-    title: String, onClickIcon: () -> Unit
+    title: String,
+    onClickIcon: () -> Unit
 ) {
-    TopAppBar(
+    CenterAlignedTopAppBar(
         modifier = modifier.fillMaxWidth(),
         navigationIcon = {
             IconButton(onClick = onClickIcon) {
@@ -41,7 +43,6 @@ fun MyTopAppBar(
         title = {
             Row(
                 modifier = Modifier
-                    .padding(end = 30.dp)
                     .fillMaxWidth(),
                 horizontalArrangement = Arrangement.Center
             ) {

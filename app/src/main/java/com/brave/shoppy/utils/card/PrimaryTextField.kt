@@ -1,5 +1,6 @@
 package com.brave.shoppy.utils.card
 
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
@@ -27,7 +28,9 @@ fun PrimaryTextField(
     title: String,
     onTextChange: (String) -> Unit,
     keyboardOptions: KeyboardOptions = KeyboardOptions(),
-    visualTransformation: VisualTransformation=VisualTransformation.None
+    visualTransformation: VisualTransformation = VisualTransformation.None,
+    isError: Boolean = false,
+    placeholder: @Composable (() -> Unit)? = null
 ) {
     Card(
         modifier = modifier,
@@ -44,12 +47,17 @@ fun PrimaryTextField(
             onValueChange = onTextChange,
             singleLine = true,
             keyboardOptions = keyboardOptions,
-            visualTransformation=visualTransformation,
-            colors = TextFieldDefaults.textFieldColors(
-                containerColor = primaryTextFieldBackground,
+            visualTransformation = visualTransformation,
+            colors = TextFieldDefaults.colors(
+                focusedContainerColor = primaryTextFieldBackground,
+                unfocusedContainerColor = primaryTextFieldBackground,
+                disabledContainerColor = primaryTextFieldBackground,
                 focusedIndicatorColor = Color.Unspecified,
-                unfocusedIndicatorColor = Color.Unspecified
-            )
+                unfocusedIndicatorColor = Color.Unspecified,
+                errorContainerColor = Color.Red,
+                errorIndicatorColor = Color.Red
+            ),
+            placeholder = placeholder, isError = isError, modifier = Modifier.fillMaxWidth()
         )
     }
 }

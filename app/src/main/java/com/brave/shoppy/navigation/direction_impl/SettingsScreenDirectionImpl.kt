@@ -4,7 +4,7 @@ import android.util.Log
 import com.brave.shoppy.navigation.AppNavigator
 import com.brave.shoppy.screen.home.HomeScreenDirection
 import com.brave.shoppy.screen.settings.SettingsScreenDirection
-import com.brave.shoppy.screen.utils.AppScreens
+import com.brave.shoppy.screen.payment.utils.utils.AppScreens
 import dagger.hilt.android.scopes.ViewModelScoped
 import javax.inject.Inject
 

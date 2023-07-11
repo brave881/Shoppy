@@ -1,4 +1,4 @@
-package com.brave.shoppy.utils
+package com.brave.shoppy.utils.validators
 
 fun String.isEmail(): Boolean {
     val emailRegex = Regex("^\\w+([.-]?\\w+)*@\\w+([.-]?\\w+)*(\\.\\w{2,3})+$")

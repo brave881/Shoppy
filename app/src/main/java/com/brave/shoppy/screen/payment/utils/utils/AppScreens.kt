@@ -1,4 +1,4 @@
-package com.brave.shoppy.screen.utils
+package com.brave.shoppy.screen.payment.utils.utils
 
 import com.brave.shoppy.screen.address.AddressScreen
 import com.brave.shoppy.screen.bag.BagScreen

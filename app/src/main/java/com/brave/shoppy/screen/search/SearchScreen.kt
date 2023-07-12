@@ -77,6 +77,7 @@ class SearchScreen : AppScreen() {
 
         if (filterDialogState){
 
+
         }
 
         Scaffold(topBar = {

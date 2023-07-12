@@ -33,10 +33,10 @@ import androidx.compose.ui.unit.dp
 import cafe.adriel.voyager.hilt.getViewModel
 import com.brave.shoppy.R
 import com.brave.shoppy.navigation.AppScreen
-import com.brave.shoppy.screen.address.components.AddressDetailCard
 import com.brave.shoppy.ui.theme.spacing
 import com.brave.shoppy.utils.MyTopAppBar
 import com.brave.shoppy.utils.buttons.PrimaryBlueButton
+import com.brave.shoppy.utils.card.PrimaryReviewDetailCard
 
 class AddressScreen : AppScreen() {
     @Composable
@@ -108,8 +108,9 @@ class AddressScreen : AppScreen() {
                             )
                             LazyColumn(modifier = Modifier.fillMaxWidth()) {
                                 items(3) {
-                                    AddressDetailCard(
-                                        city = "Indonesian, Cilacap", street = "32, Stasiun Street"
+                                    PrimaryReviewDetailCard(
+                                        title = "Indonesian, Cilacap",
+                                        subTitle = "32, Stasiun Street",
                                     )
                                     Spacer(modifier = Modifier.height(MaterialTheme.spacing.small))
                                 }

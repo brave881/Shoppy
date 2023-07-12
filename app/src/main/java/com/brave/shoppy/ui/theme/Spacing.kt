@@ -23,7 +23,8 @@ data class CustomSize(
     val cartItemReviewIconSize: Dp = 18.dp,
     val mapCardIconSize: Dp = 64.dp,
     val mapCardItemHeight: Dp = 100.dp,
-    val cardHeight: Dp = 226.dp
+    val cardHeight: Dp = 226.dp,
+    val orderReviewImageItemSize: Dp = 158.dp
 )
 
 val LocalSpacing = compositionLocalOf { Spacing() }

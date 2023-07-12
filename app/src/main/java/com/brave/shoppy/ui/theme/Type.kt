@@ -17,21 +17,21 @@ val Typography = Typography(
         fontSize = 16.sp,
         fontFamily = FontFamily(Font(R.font.nunito)),
         fontWeight = FontWeight(700),
-        color = Color(0xFF1F1F24),
+        color = Color(0xFF000000),
     ),
     displayMedium = TextStyle(
         // H2
         fontSize = 20.sp,
         fontFamily = FontFamily(Font(R.font.nunito)),
         fontWeight = FontWeight(600),
-        color = Color(0xFF1F1F24),
+        color = Color(0xFF000000),
     ),
     //h4
     headlineMedium = TextStyle(
         fontSize = 14.sp,
         fontFamily = FontFamily(Font(R.font.nunito)),
         fontWeight = FontWeight(400),
-        color = Color(0x66020000),
+        color = Color(0xFF000000),
     ),
 //// semibold/h3
 //    semibold = TextStyle(

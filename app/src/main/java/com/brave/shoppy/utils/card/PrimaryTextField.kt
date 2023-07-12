@@ -14,10 +14,13 @@ import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.input.VisualTransformation
+import com.brave.shoppy.R
 import com.brave.shoppy.ui.theme.primaryTextFieldBackground
-import com.brave.shoppy.utils.mediumCornerShape_10
 import com.brave.shoppy.utils.horizontalPadding_12
+import com.brave.shoppy.utils.mediumCornerShape_10
 import com.brave.shoppy.utils.verticalPadding_12
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -38,9 +41,11 @@ fun PrimaryTextField(
         colors = CardDefaults.cardColors(containerColor = primaryTextFieldBackground)
     ) {
         Text(
-            modifier = Modifier.padding(start = horizontalPadding_12, top = verticalPadding_12),
-            text = title,
-            style = MaterialTheme.typography.headlineMedium
+            modifier = Modifier.padding(
+                start = horizontalPadding_12, top = verticalPadding_12
+            ), text = title, style = MaterialTheme.typography.headlineMedium.copy(
+                fontFamily = FontFamily(Font(R.font.nunito_semi_bold))
+            )
         )
         TextField(
             value = text,
@@ -57,7 +62,9 @@ fun PrimaryTextField(
                 errorContainerColor = Color.Red,
                 errorIndicatorColor = Color.Red
             ),
-            placeholder = placeholder, isError = isError, modifier = Modifier.fillMaxWidth()
+            placeholder = placeholder,
+            isError = isError,
+            modifier = Modifier.fillMaxWidth()
         )
     }
 }

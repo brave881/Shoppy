@@ -62,6 +62,7 @@ class SearchScreen : AppScreen() {
         SearchScreenContent()
     }
 
+
     @OptIn(
         ExperimentalMaterial3Api::class,
         ExperimentalLayoutApi::class,

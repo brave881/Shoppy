@@ -1,16 +1,34 @@
 package com.brave.shoppy.screen.bag
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ShoppingCart
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SearchBar
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
 import cafe.adriel.voyager.navigator.tab.Tab
 import cafe.adriel.voyager.navigator.tab.TabOptions
+import com.brave.shoppy.R
+import com.brave.shoppy.ui.theme.spacing
 
 class BagScreen : Tab {
     override val options: TabOptions
@@ -28,10 +46,43 @@ class BagScreen : Tab {
         BagScreenContent()
     }
 
+    @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
+    @OptIn(ExperimentalMaterial3Api::class)
     @Composable
     fun BagScreenContent() {
+        var query by remember { mutableStateOf("") }
+        var search by remember { mutableStateOf("") }
+        var active by remember { mutableStateOf(false) }
+        val spacer = MaterialTheme.spacing
         Box(modifier = Modifier.fillMaxSize()) {
-            Text(text = "Bag Screen")
+            Scaffold(topBar = {
+                SearchBar(query = query,
+                    onQueryChange = { query = it },
+                    onSearch = { search = it },
+                    active = active,
+                    onActiveChange = { active = it },
+                    placeholder = { Text(text = "Write here") },
+                    trailingIcon = {
+                        Icon(
+                            painter = painterResource(id = R.drawable.search),
+                            tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                            contentDescription = "Search icon"
+                        )
+                    }) {}
+            }) {
+                Column(modifier = Modifier.fillMaxSize()) {
+                    Spacer(modifier = Modifier.height(spacer.medium))
+                    Text(
+                        text = "Payment", style = MaterialTheme.typography.displayMedium.copy(
+                            fontFamily = FontFamily(Font(R.font.nunito_bold))
+                        ), modifier = Modifier.padding(spacer.medium)
+                    )
+
+                }
+            }
+
+
         }
     }
+
 }

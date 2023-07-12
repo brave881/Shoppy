@@ -125,8 +125,8 @@ class OrderReviewScreen : AppScreen() {
                         ),
                     horizontalArrangement = Arrangement.spacedBy(space = spacer.small),
                     contentPadding = PaddingValues(
-                        start = spacer.small,
-                        end = spacer.small,
+                        start = spacer.medium,
+                        end = spacer.medium,
                     )
                 ) {
                     items(listImage.size) {

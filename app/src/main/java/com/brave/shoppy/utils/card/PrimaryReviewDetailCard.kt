@@ -41,7 +41,7 @@ fun PrimaryReviewDetailCard(
         modifier = modifier
             .fillMaxWidth()
             .clickable { onClick?.invoke() },
-        colors = CardDefaults.cardColors()
+        colors = CardDefaults.cardColors(), shape = MaterialTheme.shapes.extraLarge
     ) {
         Row(
             modifier = Modifier

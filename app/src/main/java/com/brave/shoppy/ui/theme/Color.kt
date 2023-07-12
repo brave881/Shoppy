@@ -70,5 +70,6 @@ val settingsHelpBackground = Color(0x3363A1FF)
 val primaryTextFieldBackground = Color(0xFFEDEDED)
 val primaryRedColor = Color(0xFFFF6060)
 val borderGrayColor = Color(0xffC4C4C4)
+val filterBackgroundColor = Color(0xFF1F1F24)
 
 

@@ -26,4 +26,9 @@
     <string name="details">Details</string>
     <string name="from">From:</string>
     <string name="to">To:</string>
+    <string name="last_search">Last search</string>
+    <string name="best_seller">Best seller</string>
+    <string name="results_found_for_you">Results found for you</string>
+    <string name="cannot_find">Cannot find</string>
+    <string name="try_searching_again_with_a_different_spelling_or_keyword">Try searching again with a different spelling or keyword</string>
 </resources>

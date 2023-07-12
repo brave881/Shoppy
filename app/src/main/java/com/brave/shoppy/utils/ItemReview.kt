@@ -1,4 +1,4 @@
-package com.brave.shoppy.screen.home.components
+package com.brave.shoppy.utils
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
@@ -27,8 +27,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import com.brave.shoppy.R
-import com.brave.shoppy.utils.medium
-import com.brave.shoppy.utils.small
 
 @Composable
 fun ItemReview(
@@ -41,7 +39,7 @@ fun ItemReview(
     onClickFavButton: () -> Unit
 ) {
     Column(
-//        modifier = modifier.fillMaxSize()
+        modifier = modifier
     ) {
         Card(
             modifier = Modifier

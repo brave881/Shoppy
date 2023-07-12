@@ -17,6 +17,7 @@ import cafe.adriel.voyager.navigator.tab.LocalTabNavigator
 import cafe.adriel.voyager.navigator.tab.Tab
 import com.brave.shoppy.navigation.NavigationHandler
 import com.brave.shoppy.screen.payment.PaymentScreen
+import com.brave.shoppy.screen.search.SearchScreen
 import com.brave.shoppy.screen.sign_in.SignInScreen
 import com.brave.shoppy.ui.theme.ShoppyTheme
 import com.raqun.oyster.oyster
@@ -39,7 +40,7 @@ class MainActivity : ComponentActivity() {
             ShoppyTheme {
 //                MainScreen()
 //                MyGoogleMapScreen()
-                Navigator(screen = SignInScreen()) { navigator ->
+                Navigator(screen = SearchScreen ()) { navigator ->
                     LaunchedEffect(key1 = navigator) {
                         navigationHandler.navigationArgs.onEach {
                             it.invoke(navigator)

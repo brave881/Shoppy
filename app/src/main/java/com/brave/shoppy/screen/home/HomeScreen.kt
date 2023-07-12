@@ -3,7 +3,6 @@ package com.brave.shoppy.screen.home
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
@@ -17,7 +16,6 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material3.Card
 import androidx.compose.material3.Icon
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -39,13 +37,12 @@ import cafe.adriel.voyager.navigator.tab.Tab
 import cafe.adriel.voyager.navigator.tab.TabOptions
 import com.brave.shoppy.R
 import com.brave.shoppy.screen.home.components.FloatActionButton
-import com.brave.shoppy.screen.home.components.ItemReview
+import com.brave.shoppy.utils.ItemReview
 import com.brave.shoppy.ui.theme.ShoppyTheme
-import com.brave.shoppy.ui.theme.spacing
-import com.brave.shoppy.utils.betweenTextPadding
-import com.brave.shoppy.utils.card.PrimaryImageButton
-import com.brave.shoppy.utils.large
+import com.brave.shoppy.utils.buttons.PrimaryImageButton
 import com.brave.shoppy.utils.largePadding_24
+import com.brave.shoppy.utils.betweenTextPadding
+import com.brave.shoppy.utils.large
 import com.brave.shoppy.utils.primaryPadding
 import com.brave.shoppy.utils.small
 
@@ -196,11 +193,8 @@ fun HomeScreenContent(
             LazyRow(
                 horizontalArrangement = Arrangement.spacedBy(8.dp),
                 modifier = Modifier
-                    .fillMaxHeight(5f),
-                contentPadding = PaddingValues(
-                    start = MaterialTheme.spacing.medium,
-                    end = MaterialTheme.spacing.medium,
-                )
+                    .padding(start = primaryPadding)
+                    .fillMaxHeight(5f)
             ) {
                 items(5) { index ->
                     ItemReview(image = R.drawable.placeholder,

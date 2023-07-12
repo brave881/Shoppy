@@ -23,7 +23,15 @@ val Typography = Typography(
         // H2
         fontSize = 20.sp,
         fontFamily = FontFamily(Font(R.font.nunito)),
-        fontWeight = FontWeight(600),
+        fontWeight = FontWeight(700),
+        color = Color(0xFF1F1F24),
+    ),
+    displayLarge = TextStyle(
+        // H2
+        fontSize = 24.sp,
+        fontFamily = FontFamily(Font(R.font.nunito)),
+        lineHeight = 40.8.sp,
+        fontWeight = FontWeight(700),
         color = Color(0xFF000000),
     ),
     //h4

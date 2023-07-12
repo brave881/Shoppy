@@ -36,6 +36,7 @@ val xLargeCardSize_188=188.dp
 
 //Icon Sizes
 val smallIconSize_12=12.dp
+val mediumIconSize_24=24.dp
 val largeIconSize_30=30.dp
 
 //Border sizes
@@ -45,3 +46,6 @@ val mediumBorder_2=2.dp
 //Arc size
 val widthArc_110=110.dp
 val halfWidthArc_55=55.dp
+
+//search bar size
+val searchBarWidth_259=259.dp

@@ -39,7 +39,7 @@ import com.brave.shoppy.ui.theme.ShoppyTheme
 import com.brave.shoppy.ui.theme.spacing
 import com.brave.shoppy.utils.MyTopAppBar
 import com.brave.shoppy.utils.buttons.PrimaryTextButton
-import com.brave.shoppy.utils.card.PrimaryImageButton
+import com.brave.shoppy.utils.buttons.PrimaryImageButton
 
 class DetailsScreen : AppScreen() {
 

@@ -52,8 +52,8 @@ class AddressScreen : AppScreen() {
 
         val scope = rememberCoroutineScope()
         val scaffoldState = rememberBottomSheetScaffoldState()
-        var query by remember { mutableStateOf("") }
         var search by remember { mutableStateOf("") }
+        var query by remember { mutableStateOf("") }
         var active by remember { mutableStateOf(false) }
 
 

@@ -21,7 +21,7 @@ import androidx.compose.ui.res.stringResource
 import com.brave.shoppy.R
 import com.brave.shoppy.navigation.AppScreen
 import com.brave.shoppy.screen.settings.components.LanguageButton
-import com.brave.shoppy.utils.LanguageType
+import com.brave.shoppy.utils.types.LanguageType
 import com.brave.shoppy.utils.buttons.PrimaryBlueButton
 import com.brave.shoppy.utils.bottomPadding_20
 import com.brave.shoppy.utils.largeHorizontalPadding_24

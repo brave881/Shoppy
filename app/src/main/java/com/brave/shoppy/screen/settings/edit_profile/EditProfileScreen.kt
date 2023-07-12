@@ -30,7 +30,7 @@ import androidx.compose.ui.text.input.KeyboardType
 import com.brave.shoppy.R
 import com.brave.shoppy.navigation.AppScreen
 import com.brave.shoppy.screen.settings.components.GenderButton
-import com.brave.shoppy.utils.GenderType
+import com.brave.shoppy.utils.types.GenderType
 import com.brave.shoppy.utils.card.ImageCard
 import com.brave.shoppy.utils.buttons.PrimaryBlueButton
 import com.brave.shoppy.utils.card.PrimaryTextField

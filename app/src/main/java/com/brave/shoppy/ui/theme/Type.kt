@@ -17,7 +17,7 @@ val Typography = Typography(
         fontSize = 16.sp,
         fontFamily = FontFamily(Font(R.font.nunito)),
         fontWeight = FontWeight(700),
-        color = Color(0xFF000000),
+        color = Color(0xFF1F1F24),
     ),
     displayMedium = TextStyle(
         // H2
@@ -38,8 +38,8 @@ val Typography = Typography(
     headlineMedium = TextStyle(
         fontSize = 14.sp,
         fontFamily = FontFamily(Font(R.font.nunito)),
-        fontWeight = FontWeight(400),
-        color = Color(0xFF000000),
+        fontWeight = FontWeight(700),
+        color = Color(0xFF1F1F24),
     ),
 //// semibold/h3
 //    semibold = TextStyle(

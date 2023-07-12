@@ -1,7 +1,6 @@
 package com.brave.shoppy.screen.search
 
 import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -14,8 +13,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.staggeredgrid.LazyVerticalStaggeredGrid
 import androidx.compose.foundation.lazy.staggeredgrid.StaggeredGridCells
@@ -23,15 +20,17 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CenterAlignedTopAppBar
-import androidx.compose.material3.DockedSearchBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.SearchBar
-import androidx.compose.material3.SearchBarDefaults
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
+import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -43,18 +42,30 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.window.Dialog
+import androidx.compose.ui.window.DialogProperties
 import com.brave.shoppy.R
 import com.brave.shoppy.navigation.AppScreen
+import com.brave.shoppy.ui.theme.dialogBackgroundColor
 import com.brave.shoppy.ui.theme.filterBackgroundColor
 import com.brave.shoppy.ui.theme.primaryTextFieldBackground
 import com.brave.shoppy.utils.ItemReview
+import com.brave.shoppy.utils.betweenTextPadding
+import com.brave.shoppy.utils.bottomPadding_20
+import com.brave.shoppy.utils.buttons.PrimaryBlueButton
 import com.brave.shoppy.utils.buttons.PrimaryImageButton
+import com.brave.shoppy.utils.buttons.PrimaryTextButton
+import com.brave.shoppy.utils.largeCardSize_78
+import com.brave.shoppy.utils.largeCornerShape_15
 import com.brave.shoppy.utils.largeHorizontalPadding_24
 import com.brave.shoppy.utils.largeVerticalPadding_24
+import com.brave.shoppy.utils.mediumCardSize_48
 import com.brave.shoppy.utils.mediumCornerShape_10
 import com.brave.shoppy.utils.primaryPadding
-import com.brave.shoppy.utils.searchBarWidth_259
 import com.brave.shoppy.utils.smallPadding_10
+import com.brave.shoppy.utils.types.CategoryType
+import com.brave.shoppy.utils.types.SearchType
+import com.brave.shoppy.utils.types.SizeType
 
 class SearchScreen : AppScreen() {
     @Composable
@@ -75,12 +86,181 @@ class SearchScreen : AppScreen() {
         var query by remember { mutableStateOf("") }
         var active by remember { mutableStateOf(false) }
         var filterDialogState by remember { mutableStateOf(false) }
+        var sizeType by remember { mutableStateOf(SizeType.DEFAULT) }
+        var searchType by remember { mutableStateOf(SearchType.DEFAULT) }
+        var categoryType by remember { mutableStateOf(CategoryType.DEFAULT) }
 
-        if (filterDialogState){
+        if (filterDialogState) {
+            Dialog(
+                onDismissRequest = { filterDialogState = false }, properties = DialogProperties(
+                    dismissOnBackPress = true, dismissOnClickOutside = true
+                )
+            ) {
+                Card(
+                    Modifier.fillMaxWidth(), shape = RoundedCornerShape(
+                        largeCornerShape_15
+                    ), colors = CardDefaults.cardColors(containerColor = dialogBackgroundColor)
+                ) {
+                    Column(Modifier.padding(bottomPadding_20)) {
 
+                        Text(
+                            text = stringResource(R.string.filter_search),
+                            style = MaterialTheme.typography.displayMedium,
+                            modifier = Modifier
+                                .padding(bottom = bottomPadding_20)
+                                .align(Alignment.CenterHorizontally)
+                        )
 
+                        Text(
+                            text = stringResource(R.string.categories),
+                            style = MaterialTheme.typography.displaySmall,
+                            modifier = Modifier.padding(bottom = bottomPadding_20)
+                        )
+
+                        Row(
+                            modifier = Modifier
+                                .padding(bottom = largeVerticalPadding_24)
+                                .fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween
+                        ) {
+                            PrimaryImageButton(image = R.drawable.image_1,
+                                isClicked = categoryType == CategoryType.SHIRTS,
+                                onClick = { categoryType = CategoryType.SHIRTS })
+                            PrimaryImageButton(image = R.drawable.pants,
+                                isClicked = categoryType == CategoryType.PANTS,
+                                onClick = { categoryType = CategoryType.PANTS })
+                            PrimaryImageButton(image = R.drawable.image_2,
+                                isClicked = categoryType == CategoryType.SHOES,
+                                onClick = { categoryType = CategoryType.SHOES })
+                            PrimaryImageButton(image = R.drawable.hat,
+                                isClicked = categoryType == CategoryType.HATS,
+                                onClick = { categoryType = CategoryType.HATS })
+                            PrimaryImageButton(image = R.drawable.watch,
+                                isClicked = categoryType == CategoryType.ACCESSORIES,
+                                onClick = { categoryType = CategoryType.ACCESSORIES })
+                        }
+
+                        Text(
+                            text = stringResource(R.string.size),
+                            style = MaterialTheme.typography.displaySmall,
+                            modifier = Modifier.padding(bottom = bottomPadding_20)
+                        )
+
+                        Row(
+                            Modifier
+                                .padding(bottom = largeVerticalPadding_24)
+                                .fillMaxWidth(),
+                            horizontalArrangement = Arrangement.SpaceEvenly
+                        ) {
+                            PrimaryTextButton(
+                                letter = stringResource(R.string.s),
+                                onClick = { sizeType = SizeType.S },
+                                onSelected = sizeType == SizeType.S
+                            )
+                            PrimaryTextButton(
+                                letter = stringResource(R.string.m),
+                                onClick = { sizeType = SizeType.M },
+                                onSelected = sizeType == SizeType.M
+                            )
+                            PrimaryTextButton(
+                                letter = stringResource(R.string.l),
+                                onClick = { sizeType = SizeType.L },
+                                onSelected = sizeType == SizeType.L
+                            )
+                            PrimaryTextButton(
+                                letter = stringResource(R.string.xl),
+                                onClick = { sizeType = SizeType.XL },
+                                onSelected = sizeType == SizeType.XL
+                            )
+                        }
+
+                        Text(
+                            text = stringResource(R.string.search),
+                            style = MaterialTheme.typography.displaySmall,
+                            modifier = Modifier.padding(bottom = bottomPadding_20)
+                        )
+
+                        Row(
+                            Modifier
+                                .padding(bottom = largeVerticalPadding_24)
+                                .fillMaxWidth(),
+                            horizontalArrangement = Arrangement.SpaceBetween
+                        ) {
+                            Card(
+                                modifier = Modifier
+                                    .padding(end = betweenTextPadding)
+                                    .height(mediumCardSize_48)
+                                    .fillMaxWidth()
+                                    .weight(1f),
+                                shape = RoundedCornerShape(mediumCornerShape_10),
+                                colors = CardDefaults.cardColors(
+                                    containerColor = if (searchType == SearchType.BESTSELLER) MaterialTheme.colorScheme.primary else primaryTextFieldBackground
+                                ),
+                            ) {
+                                Box(modifier = Modifier
+                                    .clickable {
+                                        searchType = SearchType.BESTSELLER
+                                    }
+                                    .fillMaxSize(), contentAlignment = Alignment.Center) {
+                                    Text(
+                                        text = stringResource(R.string.best_seller),
+                                        style = MaterialTheme.typography.headlineMedium
+                                    )
+                                }
+                            }
+                            Card(
+                                modifier = Modifier
+                                    .padding(start = betweenTextPadding)
+                                    .height(mediumCardSize_48)
+                                    .fillMaxWidth()
+                                    .weight(1f),
+                                shape = RoundedCornerShape(mediumCornerShape_10),
+                                colors = CardDefaults.cardColors(
+                                    containerColor = if (searchType == SearchType.CHEAPEST) MaterialTheme.colorScheme.primary else primaryTextFieldBackground
+                                ),
+                            ) {
+                                Box(modifier = Modifier
+                                    .clickable {
+                                        searchType = SearchType.CHEAPEST
+                                    }
+                                    .fillMaxSize(), contentAlignment = Alignment.Center) {
+                                    Text(
+                                        text = stringResource(R.string.cheapest),
+                                        style = MaterialTheme.typography.headlineMedium
+                                    )
+                                }
+                            }
+                        }
+
+                        PrimaryBlueButton(text = stringResource(R.string.done),
+                            onSelected = true,                                                      ///
+                            modifier = Modifier
+                                .padding(bottom = smallPadding_10)
+                                .fillMaxWidth(),
+                            onClick = {
+
+                            })
+
+                        Button(
+                            onClick = {
+                                sizeType = SizeType.DEFAULT
+                                searchType = SearchType.DEFAULT
+                                categoryType=CategoryType.DEFAULT
+                            },
+                            modifier = Modifier.fillMaxWidth(),
+                            shape = RoundedCornerShape(
+                                mediumCornerShape_10
+                            ),
+                            colors = ButtonDefaults.buttonColors(containerColor = primaryTextFieldBackground)
+                        ) {
+                            Text(
+                                text = stringResource(R.string.reset_to_default),
+                                style = MaterialTheme.typography.titleSmall
+                            )
+                        }
+                    }
+                }
+            }
         }
-
         Scaffold(topBar = {
             CenterAlignedTopAppBar(modifier = Modifier.padding(start = largeHorizontalPadding_24),
                 navigationIcon = {
@@ -91,7 +271,7 @@ class SearchScreen : AppScreen() {
                         })
                 },
                 title = {
-                    Text(text = stringResource(R.string.shipment))
+                    Text(text = stringResource(R.string.search))
                 })
         }) { paddingValues ->
             Column(
@@ -105,33 +285,32 @@ class SearchScreen : AppScreen() {
                         .fillMaxWidth(),
                     contentAlignment = Alignment.Center
                 ) {
-                    Box(
+                    TextField(
                         modifier = Modifier
-                            .width(searchBarWidth_259)
+                            .padding(end = largeCardSize_78)
                             .fillMaxWidth()
-                            .align(Alignment.CenterStart)
-                    ) {
-                        SearchBar(
-                            query = query,
-                            onQueryChange = { query = it },
-                            onSearch = { search = it },
-                            active = false,
-                            onActiveChange = { active = it },
-                            placeholder = { Text(text = "Write here") },
-                            trailingIcon = {
-                                Icon(
-                                    painter = painterResource(id = R.drawable.search),
-                                    tint = MaterialTheme.colorScheme.onSurfaceVariant,
-                                    contentDescription = "Search icon"
-                                )
-                            },
-                            shape = RoundedCornerShape(mediumCornerShape_10),
-                            colors = SearchBarDefaults.colors(
-                                containerColor = primaryTextFieldBackground,
-                                dividerColor = Color.Unspecified
+                            .align(Alignment.CenterStart),
+                        value = query,
+                        onValueChange = { query = it },
+                        placeholder = { Text(text = "Write here") },
+                        colors = TextFieldDefaults.colors(
+                            focusedContainerColor = primaryTextFieldBackground,
+                            unfocusedContainerColor = primaryTextFieldBackground,
+                            disabledContainerColor = primaryTextFieldBackground,
+                            focusedIndicatorColor = Color.Unspecified,
+                            unfocusedIndicatorColor = Color.Unspecified,
+                            errorContainerColor = Color.Red,
+                            errorIndicatorColor = Color.Red
+                        ),
+                        trailingIcon = {
+                            Icon(
+                                painter = painterResource(id = R.drawable.search),
+                                tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                                contentDescription = "Search icon"
                             )
-                        ) {}
-                    }
+                        },
+                        shape = RoundedCornerShape(mediumCornerShape_10),
+                    )
                     PrimaryImageButton(modifier = Modifier.align(Alignment.CenterEnd),
                         image = R.drawable.settings,
                         backgroundColor = filterBackgroundColor,

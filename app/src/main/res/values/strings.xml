@@ -31,4 +31,15 @@
     <string name="results_found_for_you">Results found for you</string>
     <string name="cannot_find">Cannot find</string>
     <string name="try_searching_again_with_a_different_spelling_or_keyword">Try searching again with a different spelling or keyword</string>
+    <string name="filter_search">Filter Search</string>
+    <string name="categories">Categories</string>
+    <string name="size">Size</string>
+    <string name="search">Search</string>
+    <string name="s">S</string>
+    <string name="m">M</string>
+    <string name="l">L</string>
+    <string name="xl">XL</string>
+    <string name="cheapest">Cheapest</string>
+    <string name="done">Done</string>
+    <string name="reset_to_default">Reset to default</string>
 </resources>

@@ -18,7 +18,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import com.brave.shoppy.R
-import com.brave.shoppy.utils.LanguageType
+import com.brave.shoppy.utils.types.LanguageType
 import com.brave.shoppy.utils.bottomPadding_20
 import com.brave.shoppy.utils.mediumCornerShape_10
 import com.brave.shoppy.utils.largeCardSize_68

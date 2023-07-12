@@ -47,5 +47,3 @@ val mediumBorder_2=2.dp
 val widthArc_110=110.dp
 val halfWidthArc_55=55.dp
 
-//search bar size
-val searchBarWidth_259=259.dp

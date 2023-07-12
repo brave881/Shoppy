@@ -21,6 +21,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.brave.shoppy.R
 import com.brave.shoppy.utils.mediumCardSize_48
+import com.brave.shoppy.utils.mediumCornerShape_10
 import com.brave.shoppy.utils.small
 
 @Composable
@@ -38,7 +39,7 @@ fun PrimaryBlueButton(
             .height(mediumCardSize_48)
             .fillMaxWidth(),
         onClick = onClick,
-        shape = RoundedCornerShape(10.dp),
+        shape = RoundedCornerShape(mediumCornerShape_10),
         colors = ButtonDefaults.buttonColors(
             containerColor = if (onSelected) MaterialTheme.colorScheme.primary else Color.Gray
         ),

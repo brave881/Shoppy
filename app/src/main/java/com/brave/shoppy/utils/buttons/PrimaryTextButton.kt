@@ -19,6 +19,7 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.brave.shoppy.R
+import com.brave.shoppy.ui.theme.primaryTextFieldBackground
 
 
 @Composable
@@ -37,7 +38,7 @@ fun PrimaryTextButton(
         ), colors = CardDefaults.cardColors(
             containerColor = if (onSelected)
                 MaterialTheme.colorScheme.primary
-            else MaterialTheme.colorScheme.surfaceVariant
+            else primaryTextFieldBackground
         )
     ) {
         Row(

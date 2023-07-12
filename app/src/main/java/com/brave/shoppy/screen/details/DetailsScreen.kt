@@ -34,7 +34,7 @@ import androidx.compose.ui.unit.dp
 import cafe.adriel.voyager.hilt.getViewModel
 import com.brave.shoppy.R
 import com.brave.shoppy.navigation.AppScreen
-import com.brave.shoppy.screen.details.utils.SizeLetters
+import com.brave.shoppy.utils.types.SizeType
 import com.brave.shoppy.ui.theme.ShoppyTheme
 import com.brave.shoppy.ui.theme.spacing
 import com.brave.shoppy.utils.MyTopAppBar
@@ -141,27 +141,27 @@ class DetailsScreen : AppScreen() {
                                 )
                             )
                             var state by remember {
-                                mutableStateOf(SizeLetters.DEFAULT)
+                                mutableStateOf(SizeType.DEFAULT)
                             }
                             PrimaryTextButton(
                                 letter = "M",
-                                onClick = { state = SizeLetters.M },
-                                onSelected = state == SizeLetters.M
+                                onClick = { state = SizeType.M },
+                                onSelected = state == SizeType.M
                             )
                             PrimaryTextButton(
                                 letter = "S",
-                                onClick = { state = SizeLetters.S },
-                                onSelected = state == SizeLetters.S
+                                onClick = { state = SizeType.S },
+                                onSelected = state == SizeType.S
                             )
                             PrimaryTextButton(
                                 letter = "L",
-                                onClick = { state = SizeLetters.L },
-                                onSelected = state == SizeLetters.L
+                                onClick = { state = SizeType.L },
+                                onSelected = state == SizeType.L
                             )
                             PrimaryTextButton(
                                 letter = "XL",
-                                onClick = { state = SizeLetters.XL },
-                                onSelected = state == SizeLetters.XL
+                                onClick = { state = SizeType.XL },
+                                onSelected = state == SizeType.XL
                             )
 
                             Spacer(modifier = Modifier.height(spacer.medium))

@@ -42,4 +42,6 @@
     <string name="cheapest">Cheapest</string>
     <string name="done">Done</string>
     <string name="reset_to_default">Reset to default</string>
+    <string name="comment">Comment</string>
+    <string name="write_here">Write here</string>
 </resources>

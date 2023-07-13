@@ -33,7 +33,7 @@ import com.brave.shoppy.screen.settings.components.GenderButton
 import com.brave.shoppy.utils.types.GenderType
 import com.brave.shoppy.utils.card.ImageCard
 import com.brave.shoppy.utils.buttons.PrimaryBlueButton
-import com.brave.shoppy.utils.card.PrimaryTextField
+import com.brave.shoppy.utils.textFields.PrimaryTextField
 import com.brave.shoppy.utils.betweenTextFieldPadding_8
 import com.brave.shoppy.utils.bottomPadding_20
 import com.brave.shoppy.utils.validators.isEmail
@@ -86,7 +86,7 @@ class EditProfileScreen : AppScreen() {
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     ImageCard(
-                        image = painterResource(id = R.drawable.placeholder),
+                        image = R.drawable.placeholder,
                         modifier = Modifier.size(xLargeCardSize_100)
                     )
                     Text(

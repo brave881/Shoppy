@@ -38,6 +38,7 @@ val xLargeCardSize_188=188.dp
 val smallIconSize_12=12.dp
 val mediumIconSize_24=24.dp
 val largeIconSize_30=30.dp
+val largeIconSize_32=32.dp
 
 //Border sizes
 val smallBorder_1=1.dp

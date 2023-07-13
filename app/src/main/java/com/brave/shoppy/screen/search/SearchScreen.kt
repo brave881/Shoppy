@@ -1,6 +1,7 @@
 package com.brave.shoppy.screen.search
 
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -47,6 +48,7 @@ import androidx.compose.ui.window.DialogProperties
 import com.brave.shoppy.R
 import com.brave.shoppy.navigation.AppScreen
 import com.brave.shoppy.ui.theme.dialogBackgroundColor
+import com.brave.shoppy.ui.theme.dialogOutsideBackgroundColor
 import com.brave.shoppy.ui.theme.filterBackgroundColor
 import com.brave.shoppy.ui.theme.primaryTextFieldBackground
 import com.brave.shoppy.utils.ItemReview
@@ -63,6 +65,7 @@ import com.brave.shoppy.utils.mediumCardSize_48
 import com.brave.shoppy.utils.mediumCornerShape_10
 import com.brave.shoppy.utils.primaryPadding
 import com.brave.shoppy.utils.smallPadding_10
+import com.brave.shoppy.utils.textFields.SecondaryTextField
 import com.brave.shoppy.utils.types.CategoryType
 import com.brave.shoppy.utils.types.SearchType
 import com.brave.shoppy.utils.types.SizeType
@@ -92,7 +95,12 @@ class SearchScreen : AppScreen() {
 
         if (filterDialogState) {
             Dialog(
-                onDismissRequest = { filterDialogState = false }, properties = DialogProperties(
+                onDismissRequest = {
+                    filterDialogState = false
+                    sizeType = SizeType.DEFAULT
+                    searchType = SearchType.DEFAULT
+                    categoryType = CategoryType.DEFAULT
+                }, properties = DialogProperties(
                     dismissOnBackPress = true, dismissOnClickOutside = true
                 )
             ) {
@@ -120,7 +128,8 @@ class SearchScreen : AppScreen() {
                         Row(
                             modifier = Modifier
                                 .padding(bottom = largeVerticalPadding_24)
-                                .fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween
+                                .fillMaxWidth(),
+                            horizontalArrangement = Arrangement.SpaceBetween
                         ) {
                             PrimaryImageButton(image = R.drawable.image_1,
                                 isClicked = categoryType == CategoryType.SHIRTS,
@@ -244,7 +253,7 @@ class SearchScreen : AppScreen() {
                             onClick = {
                                 sizeType = SizeType.DEFAULT
                                 searchType = SearchType.DEFAULT
-                                categoryType=CategoryType.DEFAULT
+                                categoryType = CategoryType.DEFAULT
                             },
                             modifier = Modifier.fillMaxWidth(),
                             shape = RoundedCornerShape(
@@ -261,6 +270,8 @@ class SearchScreen : AppScreen() {
                 }
             }
         }
+
+
         Scaffold(topBar = {
             CenterAlignedTopAppBar(modifier = Modifier.padding(start = largeHorizontalPadding_24),
                 navigationIcon = {
@@ -285,31 +296,14 @@ class SearchScreen : AppScreen() {
                         .fillMaxWidth(),
                     contentAlignment = Alignment.Center
                 ) {
-                    TextField(
-                        modifier = Modifier
-                            .padding(end = largeCardSize_78)
-                            .fillMaxWidth()
-                            .align(Alignment.CenterStart),
-                        value = query,
+                    SecondaryTextField(
+                        text = query,
+                        placeHolder = stringResource(R.string.write_here),
                         onValueChange = { query = it },
-                        placeholder = { Text(text = "Write here") },
-                        colors = TextFieldDefaults.colors(
-                            focusedContainerColor = primaryTextFieldBackground,
-                            unfocusedContainerColor = primaryTextFieldBackground,
-                            disabledContainerColor = primaryTextFieldBackground,
-                            focusedIndicatorColor = Color.Unspecified,
-                            unfocusedIndicatorColor = Color.Unspecified,
-                            errorContainerColor = Color.Red,
-                            errorIndicatorColor = Color.Red
-                        ),
-                        trailingIcon = {
-                            Icon(
-                                painter = painterResource(id = R.drawable.search),
-                                tint = MaterialTheme.colorScheme.onSurfaceVariant,
-                                contentDescription = "Search icon"
-                            )
-                        },
-                        shape = RoundedCornerShape(mediumCornerShape_10),
+                        icon = R.drawable.search,
+                        onCLick = {
+
+                        }
                     )
                     PrimaryImageButton(modifier = Modifier.align(Alignment.CenterEnd),
                         image = R.drawable.settings,

@@ -52,7 +52,7 @@ fun CargoInfoCard(
             verticalAlignment = Alignment.CenterVertically
         ) {
             ImageCard(
-                image = painterResource(id = image), modifier = Modifier.size(
+                image = image, modifier = Modifier.size(
                     mediumCardSize_60
                 ), shape = RoundedCornerShape(largeCornerShape_15)
             )

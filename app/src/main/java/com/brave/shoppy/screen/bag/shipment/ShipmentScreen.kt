@@ -95,7 +95,7 @@ class ShipmentScreen : AppScreen() {
                             modifier = Modifier.size(
                                 width = largeCardSize_78,
                                 height = largeCardSize_90
-                            ), image = painterResource(id = R.drawable.placeholder)
+                            ), image =R.drawable.placeholder
                         )
                         Column(
                             verticalArrangement = Arrangement.SpaceBetween,

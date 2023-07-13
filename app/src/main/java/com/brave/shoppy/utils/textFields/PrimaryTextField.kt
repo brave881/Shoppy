@@ -1,4 +1,4 @@
-package com.brave.shoppy.utils.card
+package com.brave.shoppy.utils.textFields
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding

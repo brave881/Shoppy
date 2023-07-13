@@ -78,6 +78,14 @@ val styleCargoName_16 = TextStyle(
     fontWeight = FontWeight(700),
     color = Color(0xFFF8F8F8),
 )
+
+val myCommentTextStyle_14 = TextStyle(
+    fontSize = 14.sp,
+    fontFamily = FontFamily(Font(R.font.nunito)),
+    fontWeight = FontWeight(400),
+    color = Color(0xFFF8F8F8),
+)
+
 val styleCargoDeliverDate_16 = TextStyle(
     fontSize = 16.sp,
     fontFamily = FontFamily(Font(R.font.nunito)),

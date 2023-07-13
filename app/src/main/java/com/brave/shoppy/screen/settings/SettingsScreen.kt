@@ -100,7 +100,7 @@ class SettingsScreen : AppScreen() {
                             .fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween
                     ) {
                         Row {
-                            ImageCard(image = painterResource(id = R.drawable.placeholder))
+                            ImageCard(image = R.drawable.placeholder)
                             Column(
                                 verticalArrangement = Arrangement.SpaceBetween,
                                 modifier = Modifier.padding(start = primaryPadding)

@@ -35,7 +35,7 @@ import com.brave.shoppy.ui.theme.size
 import com.brave.shoppy.ui.theme.spacing
 import com.brave.shoppy.utils.MyTopAppBar
 import com.brave.shoppy.utils.buttons.PrimaryBlueButton
-import com.brave.shoppy.utils.card.PrimaryTextField
+import com.brave.shoppy.utils.textFields.PrimaryTextField
 import com.brave.shoppy.utils.validators.trimmerCardNumber
 import com.brave.shoppy.utils.validators.trimmerDate
 import com.steliospapamichail.creditcardmasker.viewtransformations.CardNumberMask

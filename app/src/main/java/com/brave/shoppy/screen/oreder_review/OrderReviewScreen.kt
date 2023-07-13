@@ -33,12 +33,11 @@ import com.brave.shoppy.R
 import com.brave.shoppy.navigation.AppScreen
 import com.brave.shoppy.screen.oreder_review.components.OrderReviewImageItem
 import com.brave.shoppy.ui.theme.ShoppyTheme
-import com.brave.shoppy.ui.theme.size
 import com.brave.shoppy.ui.theme.spacing
 import com.brave.shoppy.utils.MyTopAppBar
 import com.brave.shoppy.utils.buttons.PrimaryBlueButton
 import com.brave.shoppy.utils.card.PrimaryReviewDetailCard
-import com.brave.shoppy.utils.card.PrimaryTextField
+import com.brave.shoppy.utils.textFields.PrimaryTextField
 
 class OrderReviewScreen : AppScreen() {
     @Composable

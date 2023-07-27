@@ -4,13 +4,17 @@ import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.brave.domain.use_case.SignInWithGoogleUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+val TAG = "brave"
+
 @HiltViewModel
 class SignInScreenViewModel @Inject constructor(
-    private val signInScreenDirection: SignInScreenDirection
+    private val direction: SignInScreenDirection,
+    private val signInWithGoogleUseCase: SignInWithGoogleUseCase,
 ) : ViewModel() {
 
     private val _state = mutableStateOf(SignInState())
@@ -18,10 +22,22 @@ class SignInScreenViewModel @Inject constructor(
 
     fun onEvent(event: SignInScreenEvent) {
         viewModelScope.launch {
+            _state.value = _state.value.copy(loading = true)
             when (event) {
                 is SignInScreenEvent.SignIn -> {
-                    signInScreenDirection.navigateToHomeScreen()
+                    if (signInWithGoogleUseCase(event.email, event.password).data == true) {
+                        _state.value = _state.value.copy(
+                            success = true, loading = false
+                        )
+                        direction.navigateToHomeScreen()
+                    } else {
+                        _state.value = _state.value.copy(
+                            error = "Fail!!", loading = false
+                        )
+                    }
+
                 }
+
             }
         }
     }

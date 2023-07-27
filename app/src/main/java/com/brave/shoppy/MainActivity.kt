@@ -11,17 +11,13 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import cafe.adriel.voyager.navigator.CurrentScreen
 import cafe.adriel.voyager.navigator.Navigator
 import cafe.adriel.voyager.navigator.tab.LocalTabNavigator
 import cafe.adriel.voyager.navigator.tab.Tab
+import cafe.adriel.voyager.transitions.SlideTransition
 import com.brave.shoppy.navigation.NavigationHandler
-import com.brave.shoppy.screen.comment.CommentScreen
-import com.brave.shoppy.screen.payment.PaymentScreen
-import com.brave.shoppy.screen.search.SearchScreen
-import com.brave.shoppy.screen.sign_in.SignInScreen
+import com.brave.shoppy.screen.splash.SplashScreen
 import com.brave.shoppy.ui.theme.ShoppyTheme
-import com.raqun.oyster.oyster
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.onEach
@@ -41,32 +37,35 @@ class MainActivity : ComponentActivity() {
             ShoppyTheme {
 //                MainScreen()
 //                MyGoogleMapScreen()
-                Navigator(screen = CommentScreen()) { navigator ->
+                Navigator(screen = SplashScreen()) { navigator ->
                     LaunchedEffect(key1 = navigator) {
                         navigationHandler.navigationArgs.onEach {
                             it.invoke(navigator)
                         }.collect()
+
                     }
-                    CurrentScreen()
-                  /*  TabNavigator(HomeScreen()) { tabNavigator ->
-                              Scaffold(content = {
-                                  CurrentTab()
-                              }, bottomBar = {
-                                  Card(
-                                      shape = RoundedCornerShape(size = 15.dp),
-                                      modifier = Modifier
-                                          .padding(all = 16.dp)
-                                          .height(60.dp)
-                                  ) {
-                                      NavigationBar {
-                                          TabNavigationItem(tab = HomeScreen())
-                                          TabNavigationItem(tab = BagScreen())
-                                          TabNavigationItem(tab = FavouriteScreen())
-                                          TabNavigationItem(tab = HomeScreen())
-                                      }
-                                  }
-                              })
-                          }*/
+                    SlideTransition(navigator = navigator)
+
+//                    CurrentScreen()
+                    /*  TabNavigator(HomeScreen()) { tabNavigator ->
+                                Scaffold(content = {
+                                    CurrentTab()
+                                }, bottomBar = {
+                                    Card(
+                                        shape = RoundedCornerShape(size = 15.dp),
+                                        modifier = Modifier
+                                            .padding(all = 16.dp)
+                                            .height(60.dp)
+                                    ) {
+                                        NavigationBar {
+                                            TabNavigationItem(tab = HomeScreen())
+                                            TabNavigationItem(tab = BagScreen())
+                                            TabNavigationItem(tab = FavouriteScreen())
+                                            TabNavigationItem(tab = HomeScreen())
+                                        }
+                                    }
+                                })
+                            }*/
                 }
             }
         }
@@ -80,4 +79,6 @@ class MainActivity : ComponentActivity() {
             onClick = { tabNavigator.current = tab },
             icon = { tab.icon?.let { Icon(painter = it, contentDescription = tab.options.title) } })
     }
+
+
 }

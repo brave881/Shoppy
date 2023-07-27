@@ -129,6 +129,7 @@ class AddressScreen : AppScreen() {
                 }) { innerPadding ->
 
                 Box(Modifier.padding(innerPadding)) {
+//                    MapBoxMap(point = )
 
                 }
             }

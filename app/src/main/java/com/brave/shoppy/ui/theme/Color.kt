@@ -73,5 +73,3 @@ val borderGrayColor = Color(0xffC4C4C4)
 val filterBackgroundColor = Color(0xFF1F1F24)
 val dialogBackgroundColor = Color(0xFFF8F8F8)
 val dialogOutsideBackgroundColor = Color(0xFF1F1F2433)
-
-

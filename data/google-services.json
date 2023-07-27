@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "927408713251",
+    "project_id": "ordinal-quarter-392915",
+    "storage_bucket": "ordinal-quarter-392915.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:927408713251:android:dd549b7aa3313240784b96",
+        "android_client_info": {
+          "package_name": "com.brave.data"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "927408713251-3a4e91hilba6po1pgil19p0sef11shgv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.brave.data",
+            "certificate_hash": "fd489ec844d981360da2114affe66ec04ed0da1b"
+          }
+        },
+        {
+          "client_id": "927408713251-9clhob59cuqqekpfvcdp1jqclepau2o1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXMHZoPaySjb1eqfSThKBriifbQ5NRS7M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "927408713251-0bqlhedcdt2btomj03e54at58oc5mnr3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

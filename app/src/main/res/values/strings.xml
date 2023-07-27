@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Shoppy</string>
     <string name="settings">Settings</string>
     <string name="account">Account</string>
@@ -31,17 +31,8 @@
     <string name="results_found_for_you">Results found for you</string>
     <string name="cannot_find">Cannot find</string>
     <string name="try_searching_again_with_a_different_spelling_or_keyword">Try searching again with a different spelling or keyword</string>
-    <string name="filter_search">Filter Search</string>
-    <string name="categories">Categories</string>
-    <string name="size">Size</string>
-    <string name="search">Search</string>
-    <string name="s">S</string>
-    <string name="m">M</string>
-    <string name="l">L</string>
-    <string name="xl">XL</string>
-    <string name="cheapest">Cheapest</string>
-    <string name="done">Done</string>
-    <string name="reset_to_default">Reset to default</string>
-    <string name="comment">Comment</string>
+    <string name="mapbox_access_token">sk.eyJ1IjoiYmxhY2toYXdrNjU1OCIsImEiOiJjbGszbTBkM3MwM252M29yeWlnMnR2aHQ3In0.Fcwhb38-0RS6NeRaGOde1A</string>
+    <string name="web_client_id">927408713251-9clhob59cuqqekpfvcdp1jqclepau2o1.apps.googleusercontent.com</string>
+    <string name="comment">comment\n</string>
     <string name="write_here">Write here</string>
 </resources>

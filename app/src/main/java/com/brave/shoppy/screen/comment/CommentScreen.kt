@@ -94,7 +94,10 @@ class CommentScreen : AppScreen() {
                     }
                 }
                 Box(
-                    Modifier.fillMaxWidth().background(Color.White).align(Alignment.BottomCenter),
+                    Modifier
+                        .fillMaxWidth()
+                        .background(Color.White)
+                        .align(Alignment.BottomCenter),
                     contentAlignment = Alignment.Center
                 ) {
                     SecondaryTextField(

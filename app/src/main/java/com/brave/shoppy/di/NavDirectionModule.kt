@@ -1,17 +1,21 @@
 package com.brave.shoppy.di
 
 import com.brave.shoppy.navigation.direction_impl.AddressScreenDirectionImpl
+import com.brave.shoppy.navigation.direction_impl.BagScreenDirectionImpl
 import com.brave.shoppy.navigation.direction_impl.CartScreenDirectionImpl
 import com.brave.shoppy.navigation.direction_impl.DetailsScreenDirectionImpl
 import com.brave.shoppy.navigation.direction_impl.HomeScreenDirectionImpl
 import com.brave.shoppy.navigation.direction_impl.SettingsScreenDirectionImpl
 import com.brave.shoppy.navigation.direction_impl.SignInScreenDirectionImpl
+import com.brave.shoppy.navigation.direction_impl.SplashScreenDirectionImpl
 import com.brave.shoppy.screen.address.AddressScreenDirection
+import com.brave.shoppy.screen.bag.BagScreenDirection
 import com.brave.shoppy.screen.cart.CartScreenDirection
 import com.brave.shoppy.screen.details.DetailsScreenDirection
 import com.brave.shoppy.screen.home.HomeScreenDirection
 import com.brave.shoppy.screen.settings.SettingsScreenDirection
 import com.brave.shoppy.screen.sign_in.SignInScreenDirection
+import com.brave.shoppy.screen.splash.SplashScreenDirection
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -39,4 +43,10 @@ interface NavDirectionModule {
 
     @Binds
     fun bindCartScreenDirection(impl: CartScreenDirectionImpl): CartScreenDirection
+
+    @Binds
+    fun bindBagScreenDirection(impl: BagScreenDirectionImpl): BagScreenDirection
+
+    @Binds
+    fun bindSplashScreenDirection(impl: SplashScreenDirectionImpl): SplashScreenDirection
 }

@@ -30,12 +30,12 @@ import com.brave.shoppy.ui.theme.settingsHelpBackground
 import com.brave.shoppy.utils.bottomPadding_20
 import com.brave.shoppy.utils.buttons.PrimaryBlueButton
 import com.brave.shoppy.utils.card.ImageCard
+import com.brave.shoppy.utils.largeCardSize_78
+import com.brave.shoppy.utils.largeCardSize_90
 import com.brave.shoppy.utils.largeHorizontalPadding_24
 import com.brave.shoppy.utils.largePadding_24
 import com.brave.shoppy.utils.primaryPadding
 import com.brave.shoppy.utils.smallPadding_10
-import com.brave.shoppy.utils.largeCardSize_78
-import com.brave.shoppy.utils.largeCardSize_90
 
 
 class ShipmentScreen : AppScreen() {
@@ -66,8 +66,7 @@ class ShipmentScreen : AppScreen() {
             Column(
                 Modifier
                     .padding(
-                        top = paddingValues.calculateTopPadding(),
-                        bottom = bottomPadding_20
+                        top = paddingValues.calculateTopPadding(), bottom = bottomPadding_20
                     )
                     .fillMaxSize(), verticalArrangement = Arrangement.SpaceBetween
             ) {
@@ -86,16 +85,13 @@ class ShipmentScreen : AppScreen() {
 
                             }
                             .padding(
-                                horizontal = largeHorizontalPadding_24,
-                                vertical = primaryPadding
+                                horizontal = largeHorizontalPadding_24, vertical = primaryPadding
                             )
-                            .fillMaxWidth()
-                    ) {
+                            .fillMaxWidth()) {
                         ImageCard(
                             modifier = Modifier.size(
-                                width = largeCardSize_78,
-                                height = largeCardSize_90
-                            ), image =R.drawable.placeholder
+                                width = largeCardSize_78, height = largeCardSize_90
+                            ), image =  R.drawable.placeholder
                         )
                         Column(
                             verticalArrangement = Arrangement.SpaceBetween,
@@ -108,34 +104,29 @@ class ShipmentScreen : AppScreen() {
                                 style = MaterialTheme.typography.displaySmall
                             )
                             Text(
-                                text = "x1",
-                                style = MaterialTheme.typography.headlineMedium
+                                text = "x1", style = MaterialTheme.typography.headlineMedium
                             )
                             Text(
-                                text = "$240",
-                                style = MaterialTheme.typography.titleSmall
+                                text = "$240", style = MaterialTheme.typography.titleSmall
                             )
                         }
                     }
 
                     Text(
-                        text = stringResource(R.string.details),
-                        modifier = Modifier
+                        text = stringResource(R.string.details), modifier = Modifier
                             .padding(
                                 start = largePadding_24,
                                 top = smallPadding_10,
                                 end = largePadding_24,
                                 bottom = primaryPadding
                             )
-                            .fillMaxWidth(),
-                        style = MaterialTheme.typography.displaySmall
+                            .fillMaxWidth(), style = MaterialTheme.typography.displaySmall
                     )
                     CargoInfoCard(image = R.drawable.fedex, name = "FedEx Express", onClick = {
 
                     }, text = "Estimated day: 13 - 16 Jun")
                     ShipmentAddressesCard(
-                        fromAddress = "709 Faeh Ave",
-                        toAddress = "32, Hancock St"
+                        fromAddress = "709 Faeh Ave", toAddress = "32, Hancock St"
                     )
 
                     PackageStateCard(

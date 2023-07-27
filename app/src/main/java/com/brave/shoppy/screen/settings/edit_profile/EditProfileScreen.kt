@@ -24,23 +24,22 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import com.brave.shoppy.R
 import com.brave.shoppy.navigation.AppScreen
 import com.brave.shoppy.screen.settings.components.GenderButton
-import com.brave.shoppy.utils.types.GenderType
-import com.brave.shoppy.utils.card.ImageCard
-import com.brave.shoppy.utils.buttons.PrimaryBlueButton
-import com.brave.shoppy.utils.textFields.PrimaryTextField
 import com.brave.shoppy.utils.betweenTextFieldPadding_8
 import com.brave.shoppy.utils.bottomPadding_20
-import com.brave.shoppy.utils.validators.isEmail
-import com.brave.shoppy.utils.validators.isPhone
+import com.brave.shoppy.utils.buttons.GenderType
+import com.brave.shoppy.utils.buttons.PrimaryBlueButton
+import com.brave.shoppy.utils.card.ImageCard
 import com.brave.shoppy.utils.largeHorizontalPadding_24
 import com.brave.shoppy.utils.primaryPadding
 import com.brave.shoppy.utils.smallPadding_10
+import com.brave.shoppy.utils.textFields.PrimaryTextField
+import com.brave.shoppy.utils.validators.isEmail
+import com.brave.shoppy.utils.validators.isPhone
 import com.brave.shoppy.utils.xLargeCardSize_100
 
 
@@ -86,8 +85,7 @@ class EditProfileScreen : AppScreen() {
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     ImageCard(
-                        image = R.drawable.placeholder,
-                        modifier = Modifier.size(xLargeCardSize_100)
+                        image = R.drawable.placeholder, modifier = Modifier.size(xLargeCardSize_100)
                     )
                     Text(
                         modifier = Modifier

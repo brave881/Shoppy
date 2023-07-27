@@ -1,12 +1,11 @@
 package com.brave.shoppy.screen.comment
 
-import androidx.compose.foundation.Image
+import CommentItem
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -15,13 +14,11 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -37,8 +34,6 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import com.brave.shoppy.R
 import com.brave.shoppy.navigation.AppScreen
-import com.brave.shoppy.screen.comment.components.CommentItem
-import com.brave.shoppy.screen.settings.SettingsScreenEvent
 import com.brave.shoppy.utils.bottomPadding_20
 import com.brave.shoppy.utils.largeHorizontalPadding_24
 import com.brave.shoppy.utils.mediumCardSize_48
@@ -59,11 +54,9 @@ class CommentScreen : AppScreen() {
         var commentText by remember { mutableStateOf("") }
 
         Scaffold(topBar = {
-            CenterAlignedTopAppBar(
-                modifier = Modifier.padding(start = largeHorizontalPadding_24),
+            CenterAlignedTopAppBar(modifier = Modifier.padding(start = largeHorizontalPadding_24),
                 navigationIcon = {
-                    Icon(
-                        imageVector = Icons.Filled.ArrowBack,
+                    Icon(imageVector = Icons.Filled.ArrowBack,
                         contentDescription = "back",
                         modifier = Modifier.clickable {
 //                            onEvent.invoke(SettingsScreenEvent.Back)
@@ -100,16 +93,14 @@ class CommentScreen : AppScreen() {
                         .align(Alignment.BottomCenter),
                     contentAlignment = Alignment.Center
                 ) {
-                    SecondaryTextField(
-                        modifier = Modifier.align(Alignment.CenterStart),
+                    SecondaryTextField(modifier = Modifier.align(Alignment.CenterStart),
                         text = commentText,
                         placeHolder = stringResource(R.string.write_here),
                         onValueChange = { commentText = it },
-                        icon = R.drawable.thumbsup,
+                        icon = R.drawable.plane,
                         onCLick = {
 
-                        }
-                    )
+                        })
                     Card(
                         modifier = Modifier
                             .size(mediumCardSize_48)

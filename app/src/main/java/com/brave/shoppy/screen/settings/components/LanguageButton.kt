@@ -22,6 +22,7 @@ import com.brave.shoppy.utils.bottomPadding_20
 import com.brave.shoppy.utils.mediumCornerShape_10
 import com.brave.shoppy.utils.largeCardSize_68
 import com.brave.shoppy.utils.smallCardSize_24
+import com.brave.shoppy.utils.types.LanguageType
 
 @Composable
 fun LanguageButton(
